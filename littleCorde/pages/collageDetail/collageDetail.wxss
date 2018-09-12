@@ -1,0 +1,221 @@
+.pay_status{
+  width: 100%;
+  height: 200rpx;
+  background: #000000;
+  position: relative;
+  border-bottom: 20rpx solid #f7f7f7;
+}
+.pay_status .pay_status_left{
+  padding-top: 59rpx;
+}
+.pay_status .pay_status_left .big{
+  font-size: 32rpx;
+  color:rgb(255,255,255);
+  padding-left: 30rpx;
+}
+.pay_status .pay_status_left .small{
+  font-size: 24rpx;
+  color:rgb(255,255,255);
+  padding-left: 30rpx;
+  margin-top: 10rpx;
+}
+.pay_status .pay_status_rit{
+  width: 88rpx;
+  float: right;
+  position: absolute;
+  top: 56rpx;
+  right: 50rpx;
+}
+.pay_status .pay_status_rit image{
+  width: 88rpx;
+  height: 88rpx;
+  color: #999999;
+}
+/* 拼团中 */
+.collage_group{
+  width: 100%;
+  height: 320rpx;
+  border-bottom: 20rpx solid #f7f7f7;
+}
+.collage_group .group_title{
+  font-size: 28rpx;
+  padding-left: 30rpx;
+  padding-top:40rpx;
+}
+.collage_group .group_title .deep{
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.collage_group .group_title .deep_color{
+  color:#f6ab30;
+  padding: 0 10rpx;
+}
+.collage_group .group_title .noColor{
+  margin-left: 20rpx;
+}
+.collage_group .group{
+  width: 650rpx;
+  margin: 40rpx auto 0;
+  display: flex;
+  justify-content:space-between;
+}
+.collage_group .group view{
+  width: 96rpx;
+  height: 96rpx;
+}
+.collage_group .group .loader{
+  position: relative;
+}
+.collage_group .group .loader text{ 
+  font-size: 20rpx;
+  color: #fff;
+  background: rgb(245,166,35);
+  padding: 3rpx 8rpx;
+  position: absolute;
+  bottom: -11rpx;
+  left: 50%;
+  margin-left: -28rpx;
+}
+.collage_group .group image{
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+/* 拼团中结束 */
+.wayBill{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  background: #ffffff;
+  margin: 20rpx auto 0;
+  padding-left: 20rpx;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+.wayBill .wayBillInfo {
+  float: left;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wayBill image{
+  width:12rpx;
+  height:20rpx;
+  margin-right: 20rpx;
+  float: right;
+  margin-top:20rpx; 
+}
+.cart{
+  background: #fff;
+  margin: 0px auto;
+}
+.cart .text{
+  font-size: 14px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.shop{
+  overflow: hidden;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+.shop .shopInfo{
+  margin-left: 20px;
+  width: 400rpx;
+}
+.floatLeft{
+  float: left;
+}
+.shop .img{
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin-left: 10px;
+}
+.shop .img image{
+  width: 100%;
+  height: 100%;
+}
+.shop .shopInfo view{
+  font-size: 12px;
+  line-height: 40rpx;
+  height: 40rpx;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shop .shopInfo view text:nth-of-type(2){
+  background: #010101;
+  color: #fff;
+  padding: 0 5rpx;
+  margin-left: 10rpx;
+  line-height: 15px;
+  font-size: 10px;
+  height: 15px;
+  display: block;
+  float: left;
+  margin-top: 5px;
+}
+.shop .shopInfo view text:nth-of-type(1){
+  display: block;
+  float: left;
+  width: 400rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.floatLeft{
+  float: left;
+}
+.address{
+  background: #fff;
+  margin: 10px auto
+}
+.address text{
+  display: block;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.address text:nth-child(1){
+  font-size: 14px;
+}
+.address text{
+  font-size: 12px;
+}
+.orderMoney{
+  width: 100%;
+  background: #fff;
+  margin: 10px auto;
+}
+.moneyList{
+  display: flex;
+}
+.moneyList text{
+  flex: 1;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.moneyList text:nth-child(2){
+  text-align: right;
+  margin-right: 10px;
+}
+.primary{
+  display: block;
+  width: 360rpx;
+  height: 40px;
+  color: #fff;
+  background: #000000;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+}

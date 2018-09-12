@@ -1,0 +1,91 @@
+<view wx:if='{{!getGroupIsRookieGroupFlag}}'>
+  <view class='success'>
+    <view class='successTips'>付款成功</view>
+    <view class='successMoney'>¥{{orderInfo.payMoney}}</view>
+    <view class='line'>
+      <text bindtap='order'>查看订单</text>
+      <text bindtap='goBack'>继续购物</text>
+    </view>
+  </view>
+  <view class='same' wx:if='{{flag}}'>
+    <image src='https://img3.cloudokids.cn/h5img/scene/cloudoSuccess1.png' class='title'></image>
+    <view class='text1'>150个国际童装品牌指定经销商</view>
+    <view class='text1'>英国排名前五童装电商</view>
+  </view>
+  <view class='coupon' wx:if='{{!flag}}'>
+    <view class='goodsTips'>恭喜你！获得
+      <text>{{couponInfo.totalMoney}}</text>优惠券</view>
+    <view class='text3'>优惠券已放入您的账户</view>
+    <view class='couponList' wx:for="{{cardInfo}}" data-beginTime='{{item.beginTime}}' data-beginTimeStamp='{{item.beginTimeStamp}}' data-brandId='{{item.brandId}}' data-categoryId='{{item.categoryId}}' data-specialId='{{item.specialId}}' wx:key='{{index}}'
+      bindtap='goSpecial' data-activityUrlVO='{{item.activityUrlVO}}'>
+      <view class='left' wx:if="{{item.type != 1}}">
+        <view class='leftMoney'>
+          <text>¥</text>{{item.value}}</view>
+        <view class='leftCondition'>{{item.description}}</view>
+      </view>
+      <view class='left' wx:else>
+        <view class='leftMoney' style='line-height:170rpx;padding-top:0'>{{item.valueVo}}
+          <text>折</text>
+        </view>
+      </view>
+      <view class='right'>
+        <view class='couponType'>{{item.title}}</view>
+        <view class='rightTime'>有效期{{item.beginTime}}-{{item.endTime}}</view>
+        <view class='rightScope' wx:if='{{item.brandId == null && item.categoryId == null && item.specialId == null}}'>全场可用</view>
+        <view class='rightScope' wx:else>指定商品可用</view>
+      </view>
+    </view>
+    <view class='sameBtn' style='margin-top:50rpx;' bindtap='goCoupon'>查看优惠券</view>
+    <view class='sameBtn' style='background:#fff;color:#000' bindtap='goBack'>返回会场</view>
+  </view>
+</view>
+<view class='siteSuccess' wx:if='{{getGroupIsRookieGroupFlag}}'>
+  <view class='siteOrder'>
+    <view class='siteOrderTitle'>
+      <image src='https://cloudoh5img.oss-cn-hangzhou.aliyuncs.com/h5img/icon/siteLogo2.png'></image>
+      <view>支付成功</view>
+      <view>订单金额：¥{{orderInfo.payMoney}}</view>
+    </view>
+    <view class='siteBtn'>
+      <button bindtap='order'>查看订单</button>
+      <button bindtap='goPlay'>继续逛逛</button>
+    </view>
+    <view class='collage_group' wx:if="{{getGroupIsRookieGroupFlag}}">
+      <view class='group_title'>
+        <view wx:if="{{getGroupIsRookieGroup.status==0 && getGroupIsRookieGroup.number == 0}}">
+          <text class='deep'>拼团中</text>
+          <view style='text-align:center'>还有
+            <text class='deep_color'>{{getGroupIsRookieGroup.unpaid}}</text>人未支付</view>
+        </view>
+        <view wx:if="{{getGroupIsRookieGroup.status==0 && getGroupIsRookieGroup.number > 0}}">
+          <text class='deep'>拼团中</text>
+          <view style='text-align:center'>还差
+            <text class='deep_color'>{{getGroupIsRookieGroup.number}}</text>人成团
+            <text class='noColor'>时间仅剩</text>
+            <text class='deep_color'>{{endTime}}</text>
+          </view>
+        </view>
+        <view wx:if="{{getGroupIsRookieGroup.status==2}}">
+          <text class='deep'>拼团成功</text>
+          <view style='text-align:center'>我们将尽快安排发货</view>
+        </view>
+      </view>
+      <view class='group'>
+        <view class='loader' wx:for="{{getGroupIsRookieGroup.members}}" wx:key="{{index}}" style='flex:{{getGroupIsRookieGroup.amount}}'>
+          <image src='{{item.avatar}}'></image>
+          <text class='superMan' wx:if="{{index==0}}">团长</text>
+        </view>
+      </view>
+    </view>
+    <view class='bottom_btn'>
+      <view class='mp' bindtap='bindItemTap'>存图分享</view>
+      <button class='friend' open-type='share'>分享给朋友</button>
+    </view>
+  </view>
+</view>
+<view class='canvasBg' hidden='{{spuCanvas}}' style='height:{{windowHeight}};width:100%;overflow:hidden;'></view>
+<view class='spuCanvas' hidden='{{spuCanvas}}'>
+  <canvas class='spuCanvasImg' canvas-id='spuCanvas' disable-scroll='true' bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"></canvas>
+  <button class='btn1' bindtap='saveSpuCanvasImg'>保存到相册</button>
+  <button class='btn2' bindtap='cancelSpuCanvasImg'></button>
+</view>

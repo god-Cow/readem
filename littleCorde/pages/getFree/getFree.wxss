@@ -1,0 +1,139 @@
+.content{
+  width: 100%;
+  overflow: scroll;
+  padding-bottom: 150rpx;
+}
+.bannerImg{
+  display: block;
+  width: 662rpx;
+  margin: 28rpx auto 40rpx;
+}
+.bannerImg image{
+  display: block;
+  width: 100%;
+}
+.title{
+  text-align: center;
+  font-size: 60rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+.etitle{
+  text-align: center;
+  font-size: 24rpx;
+  color: #a7a7a7;
+}
+.atitle{
+  text-align: center;
+  font-size: 28rpx;
+  color: #ffa487;
+}
+.btn{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 96rpx;
+  overflow: hidden;
+  display: flex;
+}
+.btn button{
+  flex: 2;
+  line-height: 96rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+.btn button:nth-of-type(1){
+  background: #333;
+}
+.active{
+  background: #dfdfdf;
+  color: #fff;
+}
+.active1{
+  background: #f5a623;
+  color: #fff;
+}
+.group{
+  width: 600rpx;
+  margin: 40rpx auto 0;
+  display: flex;
+  justify-content:space-between;
+}
+.group view{
+  width: 120rpx;
+  height: 120rpx;
+}
+.group .loader{
+  position: relative;
+}
+.group .loader text{ 
+  font-size: 20rpx;
+  color: #fff;
+  background: rgb(245,166,35);
+  padding: 3rpx 8rpx;
+  position: absolute;
+  bottom: -11rpx;
+  left: 50%;
+  margin-left: -28rpx;
+}
+.group image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+.pictureShare{
+  position: fixed;
+  right: 20px;
+  background: url("https://img3.cloudokids.cn/h5img/scene/cloudoIcon1.png") no-repeat;
+  background-size: 100% 100%;
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 10;
+  bottom: 80px;
+}
+.item {
+  font-size: 28rpx;
+  height: 50px;
+  padding: 0 !important;
+  line-height: 50px !important;
+}
+.cancel{
+  font-size: 28rpx;
+  line-height: 30px;
+}
+.item button {
+  background: #fff !important;
+  height: 50px !important;
+  line-height: 50px !important;
+  font-size: 28rpx !important;
+}
+
+.item button::after {
+  content: none;
+}
+.description{
+  text-align: center;
+  margin-top:40rpx; 
+}
+.description text{
+  display: block;
+  line-height: 40rpx;
+}
+.description text:nth-of-type(1) {
+  font-size: 26rpx;
+}
+.description text:nth-of-type(2) , .description text:nth-of-type(3){
+  font-size: 22rpx;
+} 
+.line{
+  width: 50rpx;
+  height: 5rpx;
+  background: #000;
+  margin: 10rpx auto 15rpx;
+}

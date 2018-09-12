@@ -1,0 +1,278 @@
+page{
+  background: #fafafa;
+}
+.success{
+  width: 100%;
+  height: 312rpx;
+  background: rgb(245,245,245);
+  overflow: hidden;
+}
+.successTips{
+  text-align: center;
+  font-size: 36rpx;
+  color: rgb(1,1,1);
+  padding-top: 90rpx;
+}
+.successMoney{
+  text-align: center;
+  color: rgb(244,67,54);
+  margin-top: 20rpx;
+  margin-bottom: 35rpx;
+}
+.line{
+  width: 100%;
+  overflow: hidden;
+}
+.success .line text{
+  font-size: 24rpx;
+  text-decoration: underline;
+  color: rgb(1,1,1);
+  display: block;
+  width: 49%;
+  float: left;
+}
+.success .line text:nth-of-type(1){
+  text-align: right;
+}
+.success .line text:nth-of-type(2){
+  float: right;
+}
+.same{
+  width: 100%;
+}
+.title{
+  display: block;
+  width: 188rpx;
+  height: 49rpx;
+  margin: 300rpx auto 30rpx;
+}
+.text1{
+  text-align: center;
+  color: rgb(102,102,102);
+  font-size: 24rpx;
+}
+.text1:nth-of-type(2){
+  margin-top: 10rpx;
+}
+.banner{
+  display: block;
+  margin:74rpx auto 40rpx;
+  width: 670rpx;
+  height: 540rpx;
+}
+.coupon{
+  width: 100%;
+  background: #fafafa;
+}
+.goodsTips{
+  text-align: center;
+  font-size: 30rpx;
+  color: rgb(1,1,1);
+  padding-top: 100rpx;
+}
+.goodsTips text{
+  color: rgb(244,67,54)
+}
+.text3{
+  color: rgb(102,102,102);
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 15rpx;
+  margin-bottom: 62rpx;
+}
+.couponList{
+  height: 170rpx;
+  width: 540rpx;
+  margin: 0 auto 20rpx;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+.left{
+  float: left;
+  width: 210rpx;
+  background: rgb(1,1,1);
+  height: 100%;
+}
+.right{
+  float: left;
+  width: 330rpx;
+  height: 100%;
+  background: #fff;
+}
+.leftMoney{
+  color: rgb(255, 255, 255);
+  font-size: 60rpx;
+  text-align: center;
+  padding-top: 25rpx;
+}
+.leftMoney text{
+  font-size: 30rpx;
+}
+.leftCondition{
+  color: rgb(255, 255, 255);
+  font-size: 18rpx;
+  text-align: center;
+  margin-top: 7rpx;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.couponType{
+  font-size: 30rpx;
+  color: rgb(0, 0, 0);
+  margin-left: 30rpx;
+  padding-top: 30rpx;
+}
+.rightTime{
+  font-size: 20rpx;
+  color: rgb(102,102,102);
+  margin-left: 30rpx;
+  margin-top: 12rpx;
+}
+.rightScope{
+  font-size: 20rpx;
+  color: rgb(102,102,102);
+  margin-left: 30rpx;
+  margin-top: 12rpx;
+  width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sameBtn{
+  width: 260rpx;
+  height: 74rpx;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 74rpx;
+  font-size: 24rpx;
+  background: rgb(1,1,1);
+  color: #fff;
+  border-radius: 50rpx;
+  margin: 0 auto 28rpx;
+}
+.siteOrder{
+  width: 100%;
+}
+.siteOrderTitle image{
+  display: block;
+  margin: 60rpx  auto 30rpx;
+  width: 96rpx;
+  height: 96rpx;
+}
+.siteOrderTitle view{
+  text-align: center;
+}
+.siteOrderTitle view:nth-of-type(1){
+  font-size: 36rpx;
+  color: #333;
+}
+.siteOrderTitle view:nth-of-type(2){
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 16rpx;
+}
+.siteBtn{
+  width: 700rpx;
+  border-top:1px solid #dedede;
+  border-bottom:1px solid #dedede;
+  margin: 40rpx auto;
+  height: 88rpx;
+}
+.siteBtn button{
+  display: inline-block;
+  height: 88rpx;
+  width: 350rpx;
+  text-align: center;
+  background: #fff;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 88rpx;
+}
+.siteBtn button:nth-of-type(1){
+  border-right: 1px solid #dedede;
+}
+.bottom_btn{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 108rpx;
+  overflow: hidden;
+  font-size: 30rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 108rpx;
+}
+.bottom_btn .mp{
+  width: 50%;
+  float: left;
+  height: 108rpx;
+  background: #535353;
+}
+.friend{
+  float: left;
+  width: 50%;
+  height: 108rpx;
+  background: #000;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 108rpx;
+}
+.collage_group{
+  background: #fff;
+  width: 100%;
+  height: 370rpx;
+  margin-top: 20rpx;
+}
+.collage_group .group_title{
+  font-size: 28rpx;
+  padding-left: 30rpx;
+  padding-top:40rpx;
+}
+.collage_group .group_title .deep{
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin-bottom: 20rpx;
+  color: #1d1d1d;
+}
+.collage_group .group_title .deep_color{
+  color:#f6ab30;
+  padding: 0 10rpx;
+}
+.collage_group .group_title .noColor{
+  margin-left: 20rpx;
+}
+.collage_group .group{
+  width: 650rpx;
+  margin: 40rpx auto 0;
+  display: flex;
+  justify-content:space-between;
+}
+.collage_group .group view{
+  width: 96rpx;
+  height: 96rpx;
+}
+.collage_group .group .loader{
+  position: relative;
+}
+.collage_group .group .loader text{ 
+  font-size: 20rpx;
+  color: #fff;
+  background: rgb(245,166,35);
+  padding: 3rpx 8rpx;
+  position: absolute;
+  bottom: -11rpx;
+  left: 50%;
+  margin-left: -28rpx;
+}
+.collage_group .group image{
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}

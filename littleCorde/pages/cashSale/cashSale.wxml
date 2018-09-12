@@ -1,0 +1,91 @@
+<view class='content' wx:if="{{contentFlag==true}}">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="4000" duration="1000" class='special' wx:if="{{data.banner.length>1}}">
+    <block wx:for="{{data.banner}}" wx:key="{{index}}">
+      <swiper-item>
+        <view class='special'>
+          <image src="{{item.img}}" class="slide-image specialimg" data-specialId='{{item.specialId}}' data-topicId="{{item.topicId}}" bindtap='goBrand' data-title='{{item.name}}' />
+          <view class='shade'>
+            <text class='shadetext1'>{{item.title}}</text>
+            <text class='shadetext2'>{{item.synopsis}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='special' wx:if="{{data.banner.length<2}}">
+    <image src="{{data.banner[0].img}}" class="specialimg" data-specialId='{{data.banner[0].specialId}}' data-topicId="{{data.banner[0].topicId}}" data-title='{{data.banner[0].name}}' bindtap='goBrand' />
+    <view class='shade'>
+      <text class='shadetext1'>{{data.banner[0].title}}</text>
+      <text class='shadetext2'>{{data.banner[0].synopsis}}</text>
+    </view>
+  </view>
+  <text class='title'>TOP CATEGORIES</text>
+  <text class='title2'>热门分类</text>
+  <view class='classifications'>
+    <block wx:for="{{data.category}}" wx:key="{{index}}">
+      <view class='classification' data-specialId='{{item.specialId}}' data-topicId="{{item.topicId}}" bindtap='goBrand' data-title='{{item.name}}'>
+        <view class='classificationimg' style='position: relative;'>
+          <image src="{{item.img}}" class=" classificationimgs" />
+          <!-- <image src="{{item.img}}" class=" lastclassificationimg" /> -->
+        </view>
+        <text class='classificationtext'>{{item.name}}</text>
+      </view>
+    </block>
+    <view class='classification' bindtap='golist'>
+      <view class='classificationimg' style='background-color: #1c1c1c;  position: relative;'>
+        <image src="https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the20180503cashSale01.png" class=" lastclassificationimg" />
+      </view>
+      <text class='classificationtext'>查看更多</text>
+    </view>
+  </view>
+  <view>
+    <block wx:for="{{data.specialP}}" wx:key="{{index}}">
+      <view class='popularitydiv'>
+        <image src="{{item.img}}" class="popularity" data-specialId='{{item.specialId}}' data-topicId="{{item.topicId}}" data-title='{{item.name}}' bindtap='goBrand' />
+        <view class='shade'>
+          <text class='shadetext1'>{{item.title}}</text>
+          <text class='shadetext2'>{{item.eTitle}}</text>
+        </view>
+      </view>
+      <scroll-view indicator-dots="{{indicatorDots2}}" class='popularitySKU' scroll-x="true">
+        <block wx:for="{{popularity}}" wx:key="{{index}}">
+          <view class="popularitySKU2">
+            <image src="{{item.img}}" class="popularitySKUimg" data-id="{{item.spuId}}" bindtap='goGoods' />
+            <text class='brandname'>{{item.brandName}}</text>
+            <text class='goodsPrice'>{{item.salePrice}}</text>
+          </view>
+        </block>
+      </scroll-view>
+    </block>
+  </view>
+  <view>
+    <block wx:for="{{data.specialS}}" wx:key="{{index}}">
+      <view class='brandActivitydiv'>
+        <image src="{{item.img}}" class="brandActivity" />
+        <view class='shade'>
+      <text class='shadetext1'>{{item.title}}</text>
+          <text class='shadetext2'>{{item.eTitle}}</text>
+        </view>
+      </view>
+      <scroll-view class='Activity' scroll-x="true">
+        <block wx:for="{{item.specials}}" wx:key="{{index}}">
+          <view class="Activityview">
+            <image src="{{item.img}}" data-specialId='{{item.specialId}}' data-topicId="{{item.topicId}}" data-title='{{item.name}}' bindtap='goBrand' />
+          </view>
+        </block>
+      </scroll-view>
+    </block>
+  </view>
+  <text class='title'>TOP BRANDS</text>
+  <text class='title2'>热门品牌</text>
+  <view class='brands'>
+    <block wx:for="{{data.brand}}" wx:key="{{index}}">
+      <view class='brandview' data-specialId='{{item.specialId}}' data-topicId="{{item.topicId}}" data-title='{{item.name}}' bindtap='goBrand'>
+        <image src='{{item.img}}' class='image'></image>
+      </view>
+    </block>
+    <view class='brandview' bindtap='golist'>
+      <text class='lasttext'>查看更多</text>
+    </view>
+  </view>
+</view>

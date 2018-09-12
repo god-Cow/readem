@@ -1,0 +1,33 @@
+ @import "../../wxParse/wxParse.wxss"; 
+ .wxParse-inline{
+   display: block;
+   font-size: 22rpx;
+ }
+.wxParse-strong wxParse-inline{
+   font-size: 14px;
+ }
+ view{
+   font-size: 12px;
+ }
+ .wxParse-strong{
+   line-height: 40px;
+ }
+ .tips{
+   font-size: 24rpx;
+   margin: 20rpx auto 0 5%;
+ }
+ .sizeGuide{
+   width: 90%;margin: 0 auto;
+ }
+.wxParse-th, .wxParse-td{
+  border-left:1rpx solid #000;
+  border-bottom:1rpx solid #000;
+}
+.wxParse-tr{
+  border:0!important;
+}
+.wxParse-tbody{
+   border:1rpx solid #000;
+   border-left:0;
+   border-bottom: 0;
+}

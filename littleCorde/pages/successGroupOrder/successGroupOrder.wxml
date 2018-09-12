@@ -1,0 +1,36 @@
+<view class='content'>
+  <image src='{{shopInfo.imgs[0]}}'></image>
+  <view class='brandName'>{{shopInfo.brandName}}</view>
+  <view class='goodsName'>{{shopInfo.goodsName}}</view>
+  <navigator class='link' url='../detail/detail?spuId={{spuId}}'>商品详情</navigator>
+  <view class='price'>
+    <view>
+      <text>原价：</text>¥{{shopInfo.salePrice}}</view>
+    <view>
+      <text>拼团价：</text>¥{{shopInfo.doubleGroupDiscount}}</view>
+  </view>
+</view>
+<view class='groupInfo'>
+  <view class='number' wx:if="{{groupNumber > 0}}">还差{{groupNumber}}人，点击邀请发送给好友</view>
+  <view class='number' wx:else>等待团员提交订单支付完成以后即可拼单成功</view>
+  <view class='time'>
+    <text class='blackPatch'>{{countDownHour}}</text> : 
+    <text class='blackPatch'>{{countDownMinute}}</text> :  
+    <text class='blackPatch'>{{countDownSecond}}</text> 后自动结束
+  </view>
+  <button class='shareBtn' open-type='share'>邀请好友参团</button>
+  <button class='shareBtn shareBtn1' bindtap='pictureShare'>生成图片二维码</button>
+  <view class='flow'>邀请好友参团 > 拼团成功分别发货 > 人数不足自动退款</view>
+  <view class='btn'>
+    <button bindtap='goIndex'>继续逛逛</button>
+    <button bindtap='goOrderSn'>查看订单</button>
+  </view>
+</view>
+<view class='canvasBg' hidden='{{spuCanvas}}' style='height:{{windowHeight}};width:{{windowWidth}};overflow:hidden;'></view>
+<view class='spuCanvas' hidden='{{spuCanvas}}'>
+  <canvas class='spuCanvasImg' canvas-id='spuCanvas' disable-scroll='true' bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"></canvas>
+  <view>
+    <button class='btn1' bindtap='saveSpuCanvasImg'>保存到相册</button>
+    <button class='btn2' bindtap='cancelSpuCanvasImg'>取消</button>
+  </view>
+</view>

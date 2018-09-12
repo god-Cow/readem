@@ -1,0 +1,30 @@
+ <view class="matchPicWrap">
+    <view class="matchPic"> 
+      <image src="{{buyerInfo.img}}" mode="widthFix"></image>
+    </view>
+    <view class="matchBuyer">
+      <image src="{{buyerInfo.avatar}}"></image>
+      <text class="commonInfo marginTop">{{buyerInfo.nickname}}</text>
+      <text class="commonInfo buyerName">{{buyerInfo.description}}</text>
+      <text class="commonInfo {{buyerInfo.isLike?'buyerTime_new':'buyerTime'}}"  bindtap="addCollageLike" data-id="{{buyerInfo.id}}"></text>
+    </view>
+  </view>
+  <view class="container">
+    <block wx:for="{{buyerCollage}}" wx:key="">
+        <view class="itemWrap">
+               <view class='imgWrap'>
+                    <image src="{{item.img}}"  data-id="{{item.spuId}}" bindtap="go"></image>  
+               </view>
+                <text class="brand">{{item.brandName}}</text>
+               <text class="name">{{item.goodsName}}</text>
+               <text class="price">¥{{item.salePrice}}</text>
+        </view>
+    </block>
+</view> 
+<view class="toast_content_box" wx:if="{{isShowToast}}">  
+  <view class="toast_content">  
+    <view class="toast_content_text">  
+      {{toastText}}  
+    </view>  
+  </view>  
+</view>

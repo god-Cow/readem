@@ -1,0 +1,27 @@
+<view class='content' style='height:{{windowHeight-60}}px;overflow:scroll'>
+  <view class='header'>
+    <view>您已领取了价值
+      <text>880</text>元现金红包</view>
+    <view>请在“个人中心 —— 优惠券”中查看</view>
+  </view>
+  <view class='list'>
+    <navigator hover-class='none' url='../newStyle/newStyle?specialId=2423&specialTopicId=2499&pageCome=1'>
+      <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon47.png'></image>
+    </navigator>
+    <navigator hover-class='none' url='../newStyle/newStyle?specialId=2422&specialTopicId=2498&pageCome=1'>
+      <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon48.png'></image>
+    </navigator>
+    <navigator hover-class='none' url='../newStyle/newStyle?specialId=2414&specialTopicId=2490&pageCome=1'>
+      <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon49.png'></image>
+    </navigator>
+    <navigator hover-class='none' url='../newStyle/newStyle?specialId=2407&specialTopicId=2483&pageCome=1'>
+      <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon50.png'></image>
+    </navigator>
+    <navigator hover-class='none' url='../newStyle/newStyle?specialId=2394&specialTopicId=2470&pageCome=1'>
+      <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon51.png'></image>
+    </navigator>
+  </view>
+</view>
+<view class='footer'>
+  <navigator url='../getCoupon/getCoupon' hover-class='none'>前往活动专区</navigator>
+</view>

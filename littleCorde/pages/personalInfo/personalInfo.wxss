@@ -1,0 +1,35 @@
+page{
+  background: #f3f3f3;
+}
+.content{
+  background: #ffffff;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.same{
+  border-bottom: 1px solid #eaeaea;
+  height: 40px;
+}
+.same text{
+  display: block;
+  float: left;
+  line-height: 40px;
+  width: 20%;
+  padding-left: 10px;
+}
+.same input{
+  display: block;
+  float: left;
+  height: 40px;
+  width: 70%;
+}
+.primary{
+  background: #000000;
+  height: 40px;
+  display: block;
+  width: 120px;
+  margin: 40rpx auto;
+  color: #fff;
+  font-size: 14px;
+  line-height: 40px;
+}

@@ -1,0 +1,24 @@
+<view class='group'>
+  <view><image src='https://img3.cloudokids.cn/h5img/scene/successOrder1.png'></image>{{groupStatusVo}}</view>
+  <view>商家正在努力发货，请耐心等待</view>
+  <button bindtap='goIndex'>返回首页</button>
+</view>
+<view class='line'></view>
+<view class='shopInfo'>
+  <view class='list'>
+    <view class='left'>商品</view>
+    <view class='right'>{{orderShop[0].list[0].goodsName}}</view>
+  </view>
+  <view class='list'>
+    <view class='left'>收货人</view>
+    <view class='right'>{{orderInfo.shippingName}}  {{orderInfo.shippingMobile}}</view>
+  </view>
+  <view class='list'>
+    <view class='left'>收货地址</view>
+    <view class='right'>{{orderInfo.shippingState}}{{orderInfo.shippingProvince}}{{orderInfo.shippingCity}}{{orderInfo.shippingCounty}}{{orderInfo.shippingAddress}}</view>
+  </view>
+  <view class='list'>
+    <view class='left'>成团时间</view>
+    <view class='right'>{{orderInfo.createTime}}</view>
+  </view>
+</view>

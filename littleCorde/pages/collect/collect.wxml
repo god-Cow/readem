@@ -1,0 +1,17 @@
+<view class="noCollect" style="display:{{display}}">
+  <text>您的收藏是空的</text>
+</view>
+<view class="collect" style="display:{{!display}}">
+  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh" lower-threshold="1">
+    <view class="collectList" wx:for="{{collect}}" wx:key="">
+      <navigator url="../../pages/detail/detail?spuId={{item.spuId}}">
+        <image src="{{item.img}}"></image>
+      </navigator>
+    </view>
+  </scroll-view>
+  <view class="body-view">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+      加载中...
+    </loading>
+  </view>
+</view>

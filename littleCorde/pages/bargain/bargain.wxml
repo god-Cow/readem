@@ -1,0 +1,144 @@
+<view class='content'>
+  <view class='commonhead'>
+    <view class='bargain'>
+      <text class='bargaintext'>共砍掉<text>{{record.totalMoney}}</text>元</text>
+      <text class='rule' bindtap='showdiv'>规则说明</text>
+    </view>
+    <view class='person' bindtap='gobarginlist'>有{{record.totalNumber}}人参与砍价
+      <image class='personimg' src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018bargain.png'></image>
+    </view>
+    <view class='progress'>
+      <block wx:for="{{measureSize}}" wx:key="{{index}}">
+        <view class='largescale'></view>
+        <view class='smallscale'></view>
+      </block>
+      <view class='largescale'></view>
+      <view class='progressview' wx:if="{{ bargainId=='' && record.flag==true}}" style='border-top-right-radius: 13rpx;border-bottom-right-radius: 13rpx;'></view>
+      <view class='progressview' wx:if="{{bargainId!=''&& bargainId!=undefined && bargainId!=null}}" style='width:{{record.plan}}%;'>
+      </view>
+       <view class='progressview' wx:elif="{{record.flag==false}}" style='width:{{record.plan}}%;'>
+      </view>
+    </view>
+    <view class='disCoeff' style="left:{{left}}rpx">
+      <view wx:if="{{ bargainId=='' && record.flag==true}}">原价</view>
+      <view wx:if="{{bargainId!=''&& bargainId!=undefined && bargainId!=null}}">{{record.disCoeff}}折</view>
+      <view wx:elif="{{record.flag==false}}">{{record.disCoeff}}折</view>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018bargain.jpg'></image>
+    </view>
+    <view class='progresstext'>
+      <text>{{record.lowestDis}}</text>
+      <text>{{scaleplate}}</text>
+      <text>{{scaleplate2}}</text>
+      <text>{{scaleplate3}}</text>
+      <text>原价</text>
+    </view>
+  </view>
+  <view class='brands'>
+    <block wx:for="{{buyerData}}" wx:key="{{index}}">
+      <view class='brand'>
+        <image class='brandimg' src="{{item.image}}" data-id='{{item.spuId}}' bindtap='goDetail'></image>
+        <view class='brandright'>
+          <text class='brandname'>{{item.brand}}</text>
+          <text class='goodsname'>{{item.name}}</text>
+          <view class='price'>
+            <text class='discountprice'>砍后价:￥{{item.discountMoney}}</text>
+            <text class='originalprice'>￥{{item.salePrice}}</text>
+          </view>
+          <view class='bargainirg' wx:if="{{item.ableBargainMoney > 0}}">
+            <text class='yet'>已砍{{item.bargainedMoney}}元</text>
+            <text class='gpce'>还能再砍{{item.ableBargainMoney}}元</text>
+          </view>
+          <view class='bargainirg' wx:else>
+            <text>已砍到最低价</text> 
+          </view>
+          <view class='btns'>
+            <view class='purchase' bindtap='promptlyBuy' data-id='{{item.spuId}}'>抢先购买</view>
+            <view class='attention' bindtap='attention' data-id='{{item.spuId}}' wx:if="{{item.follow==false}}">关注商品</view>
+            <view class='attention' bindtap='unfollow' data-id='{{item.spuId}}' wx:if="{{item.follow==true}}">取消关注</view>
+          </view>
+        </view>
+
+      </view>
+    </block>
+  </view>
+</view>
+<button class='initiate' wx:if="{{bargainId=='' && record.flag==true}}" bindtap='createBargaint'>发起砍价</button>
+<view class='sponsor' wx:if="{{record.flag==false}}">
+  <button open-type='share'>邀请更多好友一起砍价
+  </button>
+  <text class="countdown2">剩余<text class='time2'> {{time}}结束</text></text>
+</view>
+<view class='help' wx:if="{{bargainId!=''&& bargainId!=undefined && bargainId!=null && record.flag==true && ispastdue}}" bindtap='help'>
+  <text class='helpme'>帮忙砍一刀</text>
+  <text class='countdown'>剩余<text class='time'> {{time}}结束</text></text>
+</view>
+<!-- 立即购买 -->
+<view class="newBody" style="display:{{display}}" bindtap="disappear"></view>
+<view class='headImg' style="display:{{display}}">
+  <image src='{{goodsData.imgs[0]}}'></image>
+</view>
+<view class="moreSize" style="display:{{display}};overflow:hidden;">
+  <view class='head'>
+    <view class='goodsCost'>
+      <text class='goodsCostText'>¥{{goodsCost}}</text>
+      <view class='moreSizeCountry'>
+        <image src='https://img3.cloudokids.cn/h5img/scene/chinese_flag.png' wx:if="{{country==1}}"></image>
+        <image src='https://img3.cloudokids.cn/h5img/scene/british_flag.png' wx:if="{{country==2}}"></image>
+        <text>{{msg}}</text>
+        <text wx:if="{{moreSizeCountryPoint != '' && moreSizeCountryPoint > 0}}">赠送{{moreSizeCountryPoint}}积分</text>
+      </view>
+    </view>
+    <view class='iconDel' bindtap='disappear'></view>
+  </view>
+  <view class='gray'>
+    <view class='grayTitle'>尺码</view>
+    <view class='grayList'>
+      <view class='{{item.hidden=="block"?"grayChecked":""}} {{item.stock==0?"stockCheck":""}}' type="button" wx:for="{{getGoodsSkuBySpuId}}" data-point="{{item.point}}" data-cartId="{{item.cartId}}" wx:key="{{index}}" data-id="{{item.id}}" data-stock="{{item.stock}}" data-price="{{item.salePrice}}"
+        bindtap='selectSize'>{{item.specificationValue}}</view>
+    </view>
+  </view>
+  <view style='clear:both'></view>
+  <form report-submit='true' bindsubmit='submit'>
+    <button type='default' data-id="{{cartBtnNumber}}" form-type='submit' class="cartBtn" disabled="{{disabled}}" bindtap="addCart">确定</button>
+  </form>
+</view>
+<view class='shade' style="display:{{shadedisply}}">
+  <view class='shadediv'>
+    <view class='titlediv'>
+      <view class='shadetitle'>您已砍了{{bargainMoney}}元</view>
+      <view class='shadetext'>砍价的人越多，折扣就会越低哦~</view>
+    </view>
+    <view class='shadetitle2'>已有{{record.totalNumber}}人参与砍价</view>
+    <view class='userlist'>
+      <block wx:for="{{lists}}" wx:key="{{index}}" wx:if="{{index<5}}">
+        <view class='user'>
+          <text class='username'>{{item.nickName}}</text>
+          <text class=' prune'>砍掉{{item.bargainMoney}}元</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <image class='homeTips3' src='https://img3.cloudokids.cn/h5img/scene/homeTips3.png'></image>
+  <image class='homeTips1' src='https://img3.cloudokids.cn/h5img/scene/homeTips1.png' bindtap='delHomeTips'></image>
+</view>
+<view class='statediv2 {{showView?"show":"hide"}}'>
+  <view class='state'>
+    <image src='https://img1.cloudokids.cn/buyers/print/closeTheRule2018.jpg' class='closeClose' bindtap='hidediv'></image>
+    <text class='statetitle'>砍价活动规则</text>
+    <view class='text'>
+      <text class='statetext'>1. 活动期间内，每个用户只能砍一次；</text>
+      <text class='statetext'>2. 发起者与参与者可以在砍价过程中随时下单购买；</text>
+      <text class='statetext'>3. 商品库存数量有限，先到先得；</text>
+      <text class='statetext'>4. 发起砍价后的24小时内享受优惠价格；</text>
+      <text class='statetext'>5. 砍价中与砍价结束购买商品产生的差价不退；</text>
+      <text class='statetext'>6. 活动最终解释权归cloudo所有；</text>
+    </view>
+  </view>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>

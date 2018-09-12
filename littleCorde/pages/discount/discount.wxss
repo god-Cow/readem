@@ -1,0 +1,122 @@
+page{
+  background: #f7f7f7;
+}
+.ticket{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 111;
+}
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #010101;
+  text-align: center;
+  line-height: 80rpx;
+  background: #ffffff;
+}
+.swiper-tab-list {
+  font-size: 24rpx;
+  display: inline-block;
+  width: 50%;
+  color: #000;
+  font-weight: 600;
+}
+.on {
+  font-weight: normal;
+  border-bottom: 3rpx solid #010101;
+}
+.grayBg {
+  height: 20rpx;
+}
+.swiper-box {
+  display: block;
+  width: 100%;
+  margin-top: 54px;
+  overflow: hidden;
+}
+.same{
+  width: 90%;
+  height: 125px;
+  margin: 0 auto;
+  background: #fff;
+}
+.same text{
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.coupon{
+  background: url('http://img1.cloudokids.cn/buyers/special/coupon1.png') no-repeat;
+  background-size: 100% 100%;
+}
+.discount{
+  background: url('http://img1.cloudokids.cn/buyers/special/coupon2.png') no-repeat;
+  background-size: 100% 100%;
+}
+.left{
+  width: 400rpx;
+  height: 110px;
+  float: left;
+  background: #fff;
+  margin-top: 16rpx;
+}
+.right{
+  width: 265rpx;
+  height: 125px;
+  float: left;
+}
+.left text{
+  margin-left: 30rpx;
+}
+.name{
+  font-size: 14px;
+  line-height: 30px;
+}
+.startTime , .endTime{
+  font-size: 18rpx;
+  line-height: 30rpx;
+  color: #999;
+}
+.orderInfo{
+  font-size: 20rpx;
+  line-height: 30rpx;
+  margin-top: 30rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  width: 370rpx;
+  margin-left: 30rpx;
+}
+.price , .number{
+  color:#ffffff;
+  text-align: center;
+}
+.price{
+  font-size: 16px;
+  line-height: 90px;
+}
+.number{
+  font-size: 20rpx;
+  line-height: 30px;
+}
+.primary{
+  width: 100%;
+  background: #000;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  font-size: 28rpx;
+  height:50px;
+  line-height: 50px;
+  z-index: 111;
+  display: none;
+}
+.active{
+  display: block!important;
+}

@@ -1,0 +1,22 @@
+<view class="content">
+   <view class="same">
+    <!-- <input type="text" value="{{phone}}" disabled wx:if="{{phone != null && phone != ''}}"/> -->
+    <input type="text" value="{{phone}}"   bindinput="phone" placeholder='请输入手机号'/>
+    <button bindtap='getCode' wx:if='{{!getCodeDisabled}}'>{{getmsg}}</button>
+    <button wx:if='{{getCodeDisabled}}'>{{getmsg}}</button>
+  </view>
+   <view class="same">
+
+    <!-- <input type="text" value="{{code}}" disabled wx:if="{{code != null && code != ''}}"/> -->
+    <input type="text" value="{{code}}"   bindinput="code" placeholder='请输入验证码'/>
+  </view>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">  
+  <view class="toast_content">  
+    <view class="toast_content_text">  
+      {{toastText}}  
+    </view>  
+  </view>  
+</view>
+<button class="primary" bindtap="keep">确定</button>
+

@@ -1,0 +1,7 @@
+<view class="loginBg {{isLogin ? '' : 'notLogin'}}'">
+  <view class="loginTips">
+    <view class="loginText">需要获取您的公开信息（昵称，头像等），请立即点击授权</view>
+    <button open-type="getUserInfo" class="loginBtn" bindgetuserinfo="bindGetUserInfo">立即授权</button>
+  </view>
+</view>
+  

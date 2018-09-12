@@ -1,0 +1,56 @@
+<view class='content'>
+  <image src='{{shopInfo.imgs[0]}}'></image>
+  <view class='brandName'>{{shopInfo.brandName}}</view>
+  <view class='goodsName'>{{shopInfo.goodsName}}</view>
+  <navigator class='link' url='../detail/detail?spuId={{spuId}}'>商品详情</navigator>
+  <view class='price'>
+    <view>
+      <text>原价：</text>¥{{shopInfo.salePrice}}</view>
+    <view>
+      <text>拼团价：</text>¥{{shopInfo.doubleGroupDiscount}}</view>
+  </view>
+</view>
+<view class='groupInfo'>
+  <view class='number' wx:if="{{status==0 && groupNumber > 0}}">还差{{groupNumber}}人拼团成功</view>
+  <view class='number' wx:if="{{status==0 && groupNumber == 0}}">等待团员提交订单支付完成以后即可拼单成功</view>
+  <view class='number' wx:if="{{status==3}}">拼团成功</view>
+  <view class='number' wx:if="{{status==1}}">拼团失败</view>
+  <view class='time' wx:if="{{status==0}}">
+    <text class='blackPatch'>{{countDownHour}}</text> : 
+    <text class='blackPatch'>{{countDownMinute}}</text> :  
+    <text class='blackPatch'>{{countDownSecond}}</text> 后自动结束
+  </view>
+  <button class='shareBtn' bindtap='joinGroup' style='display:{{shareBtn1}}'>一键参团</button>
+  <button class='shareBtn' bindtap='goDetial' style='display:{{shareBtn2}}'>点此进入详情页发起拼团</button>
+  <view class='flow'>邀请好友参团 > 拼团成功分别发货 > 人数不足自动退款</view>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>
+<view class="newBody" style="display:{{display}}" bindtap="disappear"></view>
+<view class='headImg' style="display:{{display}}">
+  <image src='{{shopInfo.imgs[0]}}'></image>
+</view>
+<view class="moreSize" style="display:{{display}};overflow:hidden;">
+  <view class='head'>
+    <view class='goodsCost'>
+      <text>¥{{goodsCost}}</text>
+      <text></text>
+    </view>
+    <view class='iconDel' bindtap='disappear'></view>
+  </view>
+  <view class='gray'>
+    <view class='grayTitle'>尺码</view>
+    <view class='grayList'>
+      <view class='{{item.hidden=="block"?"grayChecked":""}} {{item.stock==0?"stockCheck":""}}' type="button" wx:for="{{getGoodsSkuBySpuId}}" data-cartId="{{item.cartId}}" wx:key="{{index}}" data-id="{{item.id}}" data-stock="{{item.stock}}" data-price="{{item.salePrice}}" bindtap='selectSize'>{{item.specificationValue}}</view>
+    </view>
+  </view>
+  <view style='clear:both'></view>
+  <form report-submit='true' bindsubmit='submit'>
+    <button type='default' form-type='submit' class="cartBtn" disabled="{{disabled}}" bindtap="addCart">确定</button>
+  </form>
+</view>

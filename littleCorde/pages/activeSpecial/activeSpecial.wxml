@@ -1,0 +1,5 @@
+<view class='content'>
+  <view class='list' wx:for="{{list}}" wx:key="{{index}}">
+    <image src='{{item.img}}' data-special='{{item.specialId}}' data-activityId='{{item.activityId}}' data-type="{{item.type}}" data-topicId='{{item.topicId}}' bindtap='goSpecial'></image>
+  </view>
+</view>

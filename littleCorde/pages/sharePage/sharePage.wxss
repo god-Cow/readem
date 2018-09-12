@@ -1,0 +1,87 @@
+@import '../home/index.wxss';
+.content{
+  background: #f1dce0;
+  width: 100%;
+  padding-bottom: 32rpx;
+}
+.userImg{
+  width: 108rpx;
+  height: 108rpx;
+  margin: 0rpx auto 30rpx;
+  border-radius: 50%;
+  padding-top: 40rpx;
+}
+.userImg image{
+  width: 100%;
+  display: block;
+  border-radius: 50%;
+}
+.userName{
+  text-align: center;
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+.eDiscription{
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 40rpx;
+}
+.oneSite{
+  background: #fff;
+  width: 690rpx;
+  margin: 0 auto 32rpx;
+  padding-bottom: 20rpx;
+}
+.oneSite .oneSiteTitle{
+  text-align: center;
+  font-size: 36rpx;
+  color: #373737;
+  margin: 0 auto 40rpx;
+  padding-top: 40rpx;
+}
+.oneSite image{
+  display: block;
+  width: 650rpx;
+  margin: 0 auto;
+}
+.oneSite .btn{
+  background:linear-gradient(to right, #ff488e, #ffbf84);
+  display:block;
+  width:360rpx;
+  height:96rpx;
+  border-radius:48rpx;
+  box-shadow:0 8rpx -12rpx rgba(255, 54, 54, 0.3) outset;
+  text-align:center;
+  box-sizing:border-box;
+  padding:10rpx 0;
+  line-height:30rpx;
+  margin-top: -40rpx;
+}
+.oneSite .btn text{
+  display: block;
+}
+.oneSite .btn text:nth-of-type(1){
+  color:#fff;
+  font-size:26rpx;
+  line-height:40rpx;
+}
+.oneSite .btn text:nth-of-type(2){
+  color:rgba(255,255,255,0.7);
+  font-size:28rpx;
+}
+.site{
+  margin-top: 20rpx;
+}
+.goIndex {
+  position: fixed;
+  bottom: 45px;
+  right: 45px;
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 10;
+  background: url("https://img3.cloudokids.cn/h5img/scene/cloudoIcon2.png") no-repeat;
+  background-size: 100% 100%;
+}

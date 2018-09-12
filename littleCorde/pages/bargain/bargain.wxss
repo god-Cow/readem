@@ -1,0 +1,556 @@
+.content {
+  width: 100%;
+  overflow: hidden;
+}
+body {
+  -webkit-overflow-scrolling: touch;
+  height: auto !important;
+}
+.commonhead {
+  border-bottom: 1rpx solid #dcdcdc;
+  border-top: 1rpx solid #dcdcdc;
+    position: relative;
+}
+.disCoeff{
+  height: 38rpx;
+  display: inline-block;
+  position: absolute;
+  top:136rpx;
+}
+.disCoeff view{
+  background-color: #f44336;
+  font-size: 20rpx;
+  color: #fff;
+  font-weight: 600;
+  display: table;
+  width: 60rpx;
+  text-align: center;
+  line-height: 38rxp;
+  border-radius:9rpx;
+}
+.disCoeff image{
+  display: block;
+  width: 11rpx;
+  height: 9rpx;
+  margin: 0 auto;
+}
+.bargain {
+  width: 550rpx;
+  margin: 60rpx auto 25rpx;
+  line-height: 32rpx;
+  overflow: hidden;
+}
+.bargaintext {
+  float: left;
+  font-size: 30rpx;
+  font-weight: lighter;
+}
+.bargaintext text {
+  color: #f44336;
+}
+.rule {
+  font-size: 22rpx;
+  float: right;
+  color: #999;
+}
+.person {
+  display: table;
+  font-size: 22rpx;
+  color: #999;
+  margin-left: 100rpx;
+  margin-bottom: 50rpx;
+  padding-right: 22rpx;
+  position: relative;
+}
+.personimg {
+  display: inline-block;
+  width: 21rpx;
+  height: 21rpx;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -10.5rpx;
+}
+.progress {
+  width: 550rpx;
+  height: 26rpx;
+  background-color: #dcdcdc;
+  border-radius: 13rpx;
+  margin: 0 auto 10rpx;
+}
+.progresstext {
+  width: 670rpx;
+  font-size: 18rpx;
+  color: #bfbfbf;
+  font-weight: lighter;
+  margin: 0 auto 40rpx;
+  overflow: hidden;
+}
+.progressview {
+  height: 100%;
+  background: linear-gradient(to right, #31dab4, #4abeeb);
+  z-index: 10;
+  border-top-left-radius: 13rpx;
+  border-bottom-left-radius: 13rpx;
+  width:100%;
+}
+.largescale, .smallscale {
+  background-color: #fff;
+  opacity: 0.3;
+  width: 1rpx;
+  float: left;
+  margin-left: 32rpx;
+  z-index: 11;
+}
+.largescale {
+  height: 19rpx;
+  margin-top: 8rpx;
+}
+.smallscale {
+  height: 9rpx;
+  margin-top: 18rpx;
+}
+.largescale:nth-child(1) {
+  margin-left: 10rpx;
+}
+.progresstext text {
+  width: 134rpx;
+  text-align: center;
+  display: inline-block;
+}
+.brands {
+  width: 690rpx;
+  margin: 50rpx auto 150rpx;
+}
+.brand {
+  height: 260rpx;
+  width: 690rpx;
+  margin: 0 auto 30rpx;
+}
+.brandimg {
+  width: 260rpx;
+  height: 260rpx;
+  float: left;
+}
+.brandright {
+  margin-left: 50rpx;
+  width: 380rpx;
+  height: 260rpx;
+  float: left;
+}
+.brandname, .goodsname {
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+.brandname {
+  font-size: 24rpx;
+  color: #010101;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.goodsname {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+.price {
+  font-size: 24rpx;
+}
+.discountprice {
+  font-weight: 600;
+}
+.originalprice {
+  color: #999;
+  margin-left: 20rpx;
+}
+.bargainirg {
+  font-size: 22rpx;
+  color: #bfbfbf;
+  margin: 10rpx auto 30rpx;
+}
+.gpce {
+  margin-left: 16rpx;
+}
+.purchase, .attention {
+  width: 136rpx;
+  height: 42rpx;
+  border-radius: 21rpx;
+  float: left;
+  font-size: 24rpx;
+  line-height: 42rpx;
+  text-align: center;
+  color: #fff;
+}
+.purchase {
+  background-color: #f44336;
+}
+.attention {
+  background-color: #010101;
+  margin-left: 20rpx;
+}
+.sponsor {
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #000;
+}
+.sponsor button{
+  width: 100%;
+  height: 68rpx;
+  line-height: 72rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #000;
+}
+.sponsor .countdown2{
+  height: 30rpx;
+  display: block;
+  width: 100%;
+  font-size: 24rpx;
+  color: #999;
+  font-weight: lighter;
+  line-height: 28rpx;
+}
+.sponsor  .countdown2 .time2{
+   margin-left: 10rpx; 
+}
+.initiate {
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #000;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  line-height: 100rpx;
+}
+.help {
+  width: 100%;
+  height: 100rpx;
+  background-color: #000;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.helpme {
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: lighter;
+  width: 100%;
+  display: block;
+  height: 70rpx;
+  line-height: 72rpx;
+  text-align: center
+}
+.countdown {
+  display: block;
+  width: 100%;
+  height: 30rpx;
+  text-align: center;
+  line-height: 28rpx;
+  font-size: 24rpx;
+  color: #999;
+  font-weight: lighter;
+}
+.time {
+  margin-left: 10rpx;
+}
+.newBody {
+  width: 100%;
+  background: #000;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 50;
+}
+.service {
+  position: fixed;
+  bottom: 120px;
+  right: 10px;
+  font-size: 10px;
+  background: url("http://img1.cloudokids.cn/buyers/scene/imWeiXinPay22.png") no-repeat center 15rpx rgba(0, 0, 0, 0.6);
+  background-size: 40rpx 38rpx;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 140rpx;
+  padding: 0;
+  color: #fff;
+  z-index: 10;
+}
+.moreSize {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 111;
+  background:#f9f9f9;
+  height: 700rpx;
+  width: 100%;
+  border-top: 1px solid #d5d4d8;
+}
+.moreSize .head{
+  height: 180rpx;
+  border-bottom: 1px solid #ccc;
+}
+.headImg{
+  width: 200rpx;
+  height: 200rpx;
+  position: fixed;
+  left: 40rpx;
+  bottom: 560rpx;
+  z-index: 150;
+  background: #fff;
+  box-shadow: 2px 2px 3px #aaaaaa;
+}
+.headImg image{
+  width: 90%;
+  height: 90%;
+  display: block;
+  margin: 5%;
+}
+.moreSize .head .goodsCost{
+  float: left;
+  margin-left: 280rpx;
+  height: 180rpx;
+}
+.moreSize .head .goodsCost .goodsCostText{
+  font-size: 30rpx;
+  line-height: 80rpx;
+  display: block;
+}
+.moreSize .head .goodsCost .moreSizeCountry{
+  width: 100%;
+  overflow: hidden;
+  height: 40rpx;
+}
+.moreSize .head .goodsCost .moreSizeCountry image{
+  display: block;
+  float: left;
+  width: 36rpx;
+  height: 27rpx;
+  margin-top: 8rpx;
+}
+.moreSize .head .goodsCost .moreSizeCountry text{
+  font-size: 22rpx;
+  color: #a0a0a0;
+  display: block;
+  float: left;
+  line-height: 40rpx;
+  margin-left: 10rpx;
+}
+.moreSize .head .iconDel{
+  background: url("https://img3.cloudokids.cn/h5img/scene/icon-del.png") no-repeat;
+  float: right;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  background-size: 50rpx 50rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.moreSize .gray{
+  height: 420rpx;
+  width: 100%;
+  overflow:auto;
+}
+.moreSize .gray .grayTitle{
+  font-size: 24rpx;
+  color: #a0a0a0;
+  line-height: 80rpx;
+  margin-left: 40rpx;
+}
+.moreSize .gray .grayList view{
+  float: left;
+  height: 50rpx;
+  width: 196.6rpx;
+  background: #EBEBEB;
+  margin-left: 40rpx;
+  margin-bottom: 30rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} 
+.grayChecked{
+  background: #010101!important;
+  color: #fff;
+} 
+.stockCheck{
+  background: #EBEBEB;
+  color:#B6B6B6;
+} 
+.cartBtn{
+  height: 100rpx;
+  font-size: 14px;
+  line-height: 100rpx;
+} 
+button::after{
+  content:none;
+}
+button[type="default"] {
+  background: #000;
+  color: #fff;
+}
+.shade {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+.shadediv {
+  width: 450rpx;
+  margin: 260rpx auto 0;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius:10rpx
+}
+.titlediv {
+  width: 390rpx;
+  height: 166rpx;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom: 1px solid #dcdcdc;
+  overflow: hidden;
+}
+.shadetext {
+  width: 100%;
+  font-size: 22rpx;
+  color: #666;
+}
+.shadetitle {
+  width: 100%;
+  margin: 50rpx auto 20rpx;
+  font-size: 30rpx;
+  color: #010101;
+}
+.shadetitle2{
+  font-size: 30rpx;
+  text-align: center;
+  color: #010101;
+  margin: 50rpx auto;
+}
+.userlist {
+  width: 390rpx;
+  margin: 50rpx auto;
+  font-size: 22rpx;
+  color: #666;
+  overflow: hidden;
+}
+.user {
+  width: 100%;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+.username {
+  float: left;
+}
+.prune {
+  float: right;
+}
+.homeTips3{
+  width: 1px;
+  height: 48rpx;
+  display: block;
+  margin: -1rpx auto 0;
+}
+.homeTips1{
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin: 0 auto;
+}
+/*规则  */
+.statediv2 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.state {
+  width: 600rpx;
+  height: 800rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -300rpx;
+  margin-top: -500rpx;
+  background-color: #fff;
+  overflow: hidden;
+}
+.statetitle {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 86rpx auto 50rpx;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.text {
+  width: 400rpx;
+  margin: 0 auto;
+}
+.statetext {
+  display: block;
+  font-size: 20rpx;
+  text-align: justify;
+  line-height: 36rpx;
+  margin: 0 auto 40rpx;
+}
+.closeClose {
+  display: block;
+  width: 32rpx;
+  height: 32rpx;
+  float: right;
+  margin: 28rpx 28rpx 0 0;
+}
+.topten {
+  width: 100%;
+  height: 96rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.topten image {
+  width: 100%;
+  height: 96rpx;
+}
+.sharediv2{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.sharetext{
+  font-size: 26rpx;
+  padding: 15rpx;
+  display: table;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 60% auto 0;
+  border-radius: 32rpx;
+  color: #fff;
+} 

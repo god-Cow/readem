@@ -1,0 +1,268 @@
+page {
+  background: #f3f3f3;
+}
+.newPage{
+  overflow-x: hidden;width: 100%;
+}
+.address {
+  background: #fff;
+  position: relative;
+  display: flex;
+  padding: 10px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.weui_cell_bd_p {
+  font-size: 14px;
+}
+.new_bd {
+  flex: 1;
+}
+.weui_cell_bd_p {
+  font-size: 14px;
+}
+.weui_cell_new {
+  justify-content: right;
+  text-align: right;
+  float: right;
+}
+.weui_cell_new image {
+  width: 12rpx;
+  height: 21rpx;
+  margin-top: 1px;
+}
+.shop .shopInfo{
+  margin-left: 20px;
+}
+.floatLeft{
+  float: left;
+}
+.shop navigator{
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin-left: 10px;
+}
+.shop navigator image{
+  width: 100%;
+  height: 100%;
+}
+.shop .shopInfo text{
+  font-size: 12px;
+  line-height: 20px;
+  height: 20px;
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.left{
+  float: left;
+  flex: 1;
+}
+.right{
+  flex: 4;
+  float: right;
+}
+.h6{
+  font-size: 14px;
+}
+.h5{
+  font-size: 12px;
+}
+.newaddress view text{
+  display: block;
+  line-height: 20px;
+}
+.newaddress view{
+  overflow: hidden;
+}
+.newaddress{
+  background: #fff;
+  position: relative;
+  display: flex;
+  padding: 10px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.cart{
+  background: #fff;
+  margin: 10px auto;
+}
+.cart .text{
+  font-size: 14px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.shop{
+  overflow: hidden;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+.method{
+  width: 100%;
+  background: #fff;
+}
+.tips{
+  font-size: 12px;
+  margin: 0 auto 0 10px;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.method .foreign label{
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 10px;
+}
+.method .foreign label:nth-child(1){
+  border-bottom: 1px solid #eaeaea;
+}
+.method .foreign text{
+  display: block;
+  float: left;
+}
+.method .foreign icon{
+  float: right;
+  height: 27px;
+  margin-right: 20px;
+  padding-top: 20rpx;
+}
+.inland{
+  width: 100%;
+  background: #fff;
+}
+.card{
+  width: 100%;
+  background: #fff;
+  margin-top: 10px;
+}
+.card label{
+  display: block;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.card label:nth-child(1){
+  border-bottom: 1px solid #eaeaea;
+}
+.card label .name{
+  font-size: 12px;
+  padding-left: 10px;
+}
+.card label .userCard{
+  width: 65%;
+  display: block;
+  height: 30px;
+  font-size: 12px;
+  text-align: right;
+  float: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 50rpx;
+}
+.card label image{
+  width: 12rpx;
+  height: 21rpx;
+  margin-top: 29.5rpx;
+  float: right;
+  margin-right: 10px;
+}
+.point{
+  background: #fff;
+  margin: 10px auto;
+  height: 80rpx;
+}
+.point text{
+  display: inline-block;
+  line-height: 80rpx;
+  font-size: 12px;
+  padding-left: 10px;
+}
+.point icon{
+  float: right;
+  padding-top: 20rpx;
+  margin-right: 10px;
+}
+.remark{
+  background: #fff;
+  margin: 10px auto;
+  height: 80rpx;
+}
+.remark text{
+  display: block;
+  line-height: 80rpx;
+  font-size: 12px;
+  padding-left: 10px;
+  float: left;
+}
+.remark input{
+  float: left;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 70%;
+  padding-left: 10px;
+  font-size: 12px;
+}
+.remark image{
+  width: 12px;
+  height: 20px;
+  margin-top: 5px;
+  float: right;
+  margin-right: 10px;
+}
+.orderMoney{
+  width: 100%;
+  background: #fff;
+  margin: 10px auto;
+  padding-bottom: 35px;
+}
+.moneyList{
+  display: flex;
+}
+.moneyList text{
+  flex: 1;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.moneyList text:nth-child(2){
+  text-align: right;
+  margin-right: 10px;
+}
+.submitOrder{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 80rpx;
+  z-index: 100;
+}
+.money{
+  flex: 1;
+  display: inline-block;
+  background: #fff;
+  font-size: 14px;
+  line-height: 80rpx;
+  text-align: center;
+}
+.primary{
+  flex: 1;
+  display: inline-block;
+  color: #fff;
+  background: #000;
+  border-radius: 0;
+  font-size: 14px;
+  line-height: 80rpx;
+}

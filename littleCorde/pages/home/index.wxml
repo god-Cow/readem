@@ -1,0 +1,48 @@
+<view class='header'>
+  <view class="index-tabs flex-center">
+    <view class="tab-list flex-div {{navTabIndex==3?'active':''}}" data-id='3' bindtap="navTabIndex" wx:if="{{newPerson}}">
+      <view>新用户</view>
+      <view class='{{navTabIndex==3?"color1":""}}'></view>
+    </view>
+    <view class="tab-list flex-div {{navTabIndex==0?'active':''}}" data-id='0' bindtap="navTabIndex">
+      <view>精选拼场</view>
+      <view class='{{navTabIndex==0?"color1":""}}'></view>
+    </view>
+    <view class="tab-list flex-div {{navTabIndex==2?'active':''}}" data-id='2' bindtap="navTabIndex">
+      <view>女孩拼场</view>
+      <view class='{{navTabIndex==2?"color1":""}}'></view>
+    </view>
+    <view class="tab-list flex-div {{navTabIndex==1?'active':''}}" data-id='1' bindtap="navTabIndex">
+      <view>男孩拼场</view>
+      <view class='{{navTabIndex==1?"color1":""}}'></view>
+    </view>
+  </view>
+</view>
+<view class='site'>
+  <view class='siteList' wx:for='{{siteList}}' wx:key="{{index}}">
+    <view class='doc {{navTabIndex==0?"doc1":""}} {{navTabIndex==1?"doc2":""}} {{navTabIndex==2?"doc3":""}}'>
+      <view class='title'>
+        <view class='index left'>
+          <view class='top'>TOP</view>
+          <view class='index'>{{index*1+1}}</view>
+        </view>
+        <view class='activityDescription left' bindtap='goSitePage' data-id='{{item.id}}' data-group-type="{{item.groupBookingType}}">
+          <view class="title">{{item.activityTitle}}<image src='{{item.hotImg}}' mode='widthFix'></image></view>
+          <view class="desc">{{item.activityDescription}}</view>
+        </view>
+      </view>
+      <image src='{{item.img}}' lazy-load='true' class='siteImg' mode='widthFix' bindtap='goSitePage' data-id='{{item.id}}' data-group-type="{{item.groupBookingType}}"></image>
+      <button class='getUp color3' bindtap='goSitePage' data-id='{{item.id}}' data-group-type="{{item.groupBookingType}}">
+        <text>{{item.memberCount}}人参与拼场</text>
+        <text>立即加入</text>
+      </button>
+    </view>
+  </view>
+</view>
+<view class='footer'>— 我也是有底线的 —</view>
+<view class='loginBg' wx:if="{{loginBgFlag}}">
+  <view class='loginTips'>
+    <view class='loginText'>需要获取您的公开信息（昵称，头像等），请立即点击授权</view>
+    <button open-type="getUserInfo" class='loginBtn' bindgetuserinfo="bindGetUserInfo">立即授权</button>
+  </view>
+</view>

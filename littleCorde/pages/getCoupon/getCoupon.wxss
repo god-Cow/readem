@@ -1,0 +1,270 @@
+.coupon{
+  width: 100%;
+}
+.banner{
+  width: 100%;
+  height: 1043rpx;
+}
+.banner image{
+  width: 100%;
+  height: 100%;
+}
+.title{
+  width: 100%;
+  text-align: center;
+  font-size: 36rpx;
+  margin-top: 75rpx;
+}
+.etitle{
+  font-size: 23rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.couponInfo{
+  width: 698rpx;
+  height: 196rpx;
+  margin: 50rpx auto;
+  background: url("https://img3.cloudokids.cn/h5img/specialSale/getCoupon1.png") no-repeat;
+  background-size:100% 100%;
+  position: relative;
+}
+.couponInfo button{
+  position: absolute;
+  top: 45rpx;
+  right: 45rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius:50%;
+  background: #000;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
+}
+.couponInfo button text{
+  display: block;
+  height: 35rpx;
+}
+.couponInfo button text:nth-child(1){
+  margin-top: 5rpx;
+}
+.imageSame{
+  width: 698rpx;
+  height: 658rpx;
+  margin: 50rpx auto 0;
+}
+.imageSame navigator , .imageSame navigator image{
+  width: 100%;
+  height: 100%;
+}
+.goodsList {
+  width: 698rpx;
+  white-space: nowrap;
+  margin: 10rpx auto 0;
+}
+.goodsWrap{
+  display: inline-block;
+  height: 460rpx;
+  margin: 0 1px 0;
+  width: 276rpx;
+}
+.goodsLink {
+  width: 276rpx;
+  height: 276rpx;
+  margin: 50rpx auto 0;
+  display: block;
+}
+.goodsWrap .goodsBrandName{
+  display: block;
+  width: 90%;
+  text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.imImg {
+  display: block;
+  width: 276rpx;
+  height: 276rpx;
+}
+.goodsName{
+  font-size: 20rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 40rpx;
+}
+.salePrice{
+  font-size: 24rpx;
+  text-align: center;
+}
+.text{
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  padding-top: 50rpx;
+  padding-bottom: 100rpx;
+}
+.seeMore{
+  font-size: 23rpx;
+  width: 220rpx;
+  height: 47rpx;
+  background: #000;
+  color: #fff;
+  text-align:center;
+  line-height: 47rpx;
+  margin: 30rpx auto 0;
+  border-radius:50rpx; 
+  display: block;
+}
+.imageSame1{
+  width: 698rpx;
+  height: 626rpx;
+  margin: 50rpx auto 0;
+}
+.imageSame1 navigator , .imageSame1 navigator image{
+  width: 100%;
+  height: 100%;
+}
+.list{
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.hotBrand{
+  overflow: hidden;
+  width: 100%;
+}
+.hotBrandList{
+  width: 344rpx;
+  height: 459rpx;
+  display: block;
+  margin-top: 50rpx;
+}
+.hotBrandList > image{
+  width: 100%;
+  height: 100%;
+}
+.list .hotBrandList:nth-child(odd){
+  float: left;
+}
+.list .hotBrandList:nth-child(even){
+  float: right;
+}
+.groupTips{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+}
+.groupTips .text{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 650rpx;
+  height: 600rpx;
+  background: #fff;
+  margin-top: -300rpx;
+  margin-left: -325rpx;
+  z-index: 311;
+  font-size: 20rpx;
+  line-height: 36rpx;
+  padding-top: 0;
+}
+.groupTips .text .newList{
+  padding: 0 55rpx;
+  display: block;
+  margin-top: 50rpx;
+  text-align: justify;
+}
+.groupTips .text .newList text{
+  font-weight: bold;
+}
+.groupTipsTitle{
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 60rpx;
+}
+.tipsDel{
+  position: fixed;
+  width: 40rpx;
+  height: 40rpx;
+  background: url("https://img1.cloudokids.cn/buyers/scene/groupBooking3.png") no-repeat center center;
+  background-size: 40rpx 40rpx;
+  top: 50%;
+  left: 50%;
+  margin-top: -270rpx;
+  margin-left: 260rpx;
+  z-index: 400;
+}
+.navigation{
+  width: 90rpx;
+  height: 90rpx;
+  position: fixed;
+  right: 25rpx;
+  bottom: 290rpx;
+}
+.navigation image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.navigationList{
+  width: 221rpx;
+  height: 505rpx;
+  position: fixed;
+  right: 0;
+  top: 200rpx;
+  background: url("https://img3.cloudokids.cn/h5img/specialSale/getCoupon44.png") no-repeat;
+  background-size: 100% 100%;
+}
+.navigationNone{
+  width: 0;
+  transition:width 0.8s;
+  -webkit-transition:width 0.8s;
+}
+.navigationYes{
+  width: 221rpx;
+  transition:width 0.8s;
+  -webkit-transition:width 0.8s;
+}
+.navigationListSame{
+  width: 221rpx;
+  height: 72rpx;
+}
+.navigationListSame:nth-child(1){
+  margin-top: 28rpx;
+}
+.goIndex{
+  background: url("https://img3.cloudokids.cn/h5img/scene/cloudoIcon2.png") no-repeat;
+  background-size:100% 100%;
+  width: 90rpx;
+  height: 90rpx;
+  position: fixed;
+  bottom: 40rpx;
+  right: 25rpx;
+}
+.gameOver{
+  text-align: center;
+  line-height: 600rpx;
+  font-size: 26rpx;
+}
+.redPacketBtn{
+  width: 510rpx;
+  height: 80rpx;
+  background: #000;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 50rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 50rpx auto 100rpx;
+}

@@ -1,0 +1,117 @@
+
+<view class="container">
+  <view bindtap="bindViewTap" class="userinfo">
+    <view class="classname avatarWrap">
+      <image class="userinfo-avatar" src="{{userInfo.wxImage}}" background-size="cover" wx:if="{{userInfo.wxImage}}"></image>
+      <image class="userinfo-avatar" src="https://img3.cloudokids.cn/h5img/icon/time03.png" background-size="cover" wx:if="{{!userInfo.wxImage}}"></image>
+    </view>
+    <view class="classname nickName">
+      <text class="userinfo-nickname" wx:if="{{userInfo.wxName}}">{{userInfo.wxName}}</text>
+      <text class="userinfo-nickname" wx:if="{{!userInfo.wxName && userInfo.realName}}">{{userInfo.realName}}</text>
+      <text class="userinfo-nickname" wx:if="{{!userInfo.wxName && !userInfo.realName}}">{{userInfo.nickname}}</text>
+    </view>
+    <view class='personCenter' bindtap='personalInfo'>
+      <text>进入个人中心</text>
+    </view>
+  </view>
+  <view class='trumpet' hidden='{{isphone}}'>
+    <text>会员中心上线！绑定手机号查看您的会员等级</text>
+    <navigator url='/pages/phone/phone'>立即绑定</navigator>
+  </view>
+      <view class='Member' bindtap='goMember' hidden='{{!isphone}}'>  
+    <image src='{{userInfo.levelImg}}' class='Memberimg'></image>
+    <text class='Membertext'>{{userInfo.levelName}}</text>
+    <view class='MemberCenter'>会员中心
+      <image src='https://img3.cloudokids.cn/h5img/icon/201808/Member7.png'></image>
+    </view>
+  </view>
+  <view class="order">
+    <view class="weui_cell">
+      <view class="weui_cell_bd new_bd">
+        <view class="weui_cell_bd_p" style="padding-left:5px;">我的订单</view>
+      </view>
+    </view>
+    <view class="weui_cell" style='padding:15px'>
+      <view class="orderStyle" bindtap="payOrder">
+        <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/daizhifu.png" class="payOrderImg"></image>
+        <text class="orderText">待支付</text>
+      </view>
+      <view class="orderStyle" bindtap="disposeOrder">
+        <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/daizhifu.png" class="disposeOrderImg"></image>
+        <text class="orderText">待收货</text>
+      </view>
+      <view class="orderStyle" bindtap="successOrder">
+        <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/yiwancheng.png" class="successOrderImg"></image>
+        <text class="orderText">已完成</text>
+      </view>
+      <view class="orderStyle" bindtap="allOrder">
+        <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/quanbudingdan.png" class="allOrderImg"></image>
+        <text class="orderText">全部订单</text>
+      </view>
+    </view>
+    <view class='bannerInfo'>
+      <view class='bannerInfoList'wx:for='{{bannerInfo}}' wx:key="{{index}}">
+        <image src='{{item.imgUrl}}' mode='widthFix' lazy-load='true' data-url='{{item.wechatUrl}}' bindtap='goUrl'></image>
+      </view>
+    </view>
+    <view class="weui_cell" style='padding:0;margin-top:20rpx'>
+      <view class="list" bindtap="point">
+        <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/jifen.png" class='pointImg'></image>
+        <text class="orderText">积分  {{pointNumber}}</text>
+      </view>
+      <view class="list" bindtap='discount'>
+        <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/youhuiquan.png" class='discountImg'></image>
+        <text class="orderText">优惠券  {{disCountCardNumber}}</text>
+      </view>
+      <view class="list" bindtap='coupon'>
+        <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/lipinka.png" class='couponImg'></image>
+        <text class="orderText">礼品卡  {{giftCardNumber}}</text>
+      </view>
+    </view>
+    <view class="weui_cell" style='padding:0'>
+      <view class="list" bindtap="collect">
+        <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/shoucang.png" class='shoucangImg'></image>
+        <text class="orderText">收藏  {{favoriteNumber}}</text>
+      </view>
+      <view class="list" bindtap="address">
+        <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/dizhiguanli.png" class='addressImg'></image>
+        <text class="orderText">地址管理</text>
+      </view>
+      <view class="list serviceLogo">
+        <!-- <contact-button size='27px' class='service' type="default-light" session-from="weapp" style='opacity:0'></contact-button> -->
+        <button bindtap='weService' class='service' style='border-radius:0' type="default-light" session-from="sobot|{{userInfo.nickName}}|{{userInfo.avatarUrl}}" open-type="contact">客服咨询</button>
+      </view>
+    </view>
+    <view class="weui_cell" style='padding:0'>
+      <view class="list" bindtap="group">
+        <image src="https://img1.cloudokids.cn/buyers/scene/groupBooking7.png" class='group'></image>
+        <text class="orderText">拼场</text>
+      </view>
+      <view class="list" hidden='{{handSlap}}' bindtap='becomeHandSlap'>
+        <image src="https://img1.cloudokids.cn/buyers/scene/groupBooking20.png" class='handSlap1'></image>
+        <text class="orderText">成为推手</text>
+      </view>
+      <view class="list" hidden='{{!handSlap}}' data-index="{{handSlapStatus}}" bindtap='handSlapCenter'>
+        <image src="https://img1.cloudokids.cn/buyers/scene/groupBooking21.png" class='handSlap2' data-index="{{handSlapStatus}}"></image>
+        <text class="orderText" data-index="{{handSlapStatus}}">推手中心</text>
+      </view>
+      <view class="list"></view>
+    </view>
+  </view>
+</view>
+<view class='phoneCode' hidden='{{phoneCode}}'>
+  <view class='phoneCodeInfo'>
+    <view class='del' bindtap='delPhoneCode'></view>
+    <view class='text1'>请填写手机短信验证码</view>
+    <view class='text2'>验证码已发送到手机号:{{_phone}}</view>
+    <input type='number' class='code' maxlength='6' pattern="[0-9]*" bindinput='phoneCode'></input>
+    <button class='submitInfo' bindtap='submitInfo'>提交</button>
+  </view>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>

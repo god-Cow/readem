@@ -1,0 +1,57 @@
+.matchPicWrap {
+  width: 100%;
+}
+.matchPic {
+  width: 690rpx;
+  height: 665rpx;
+  margin: 0 auto;
+}
+.matchBuyer {
+  height: 342rpx;
+  width: 100%;
+  position: relative;
+  overflow: visible;
+}
+.matchPic image {
+  display: block;
+  width: 665rpx;
+  height: 665rpx;
+  margin: 0 auto;
+}
+.matchBuyer image {
+  display: block;
+  width: 130rpx;
+  height: 130rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -65rpx;
+  top: -25rpx;
+  border-radius: 50%;
+}
+.commonInfo {
+  display: block;
+  width: 90%;
+  min-height: 48rpx;
+  height: auto;
+  line-height: 48rpx;
+  font-size: 20rpx;
+  font-family: PingFang;
+  text-align: center;
+  margin: 0 auto;
+}
+.marginTop {
+  padding-top: 120rpx;
+}
+.buyerName {
+  margin-top: 20rpx;
+}
+.buyerTime {
+  margin-top: 20rpx;
+  background: url('http://img1.cloudokids.cn/buyers/special/love.png') no-repeat center;
+  background-size:38rpx 38rpx;
+}
+.buyerTime_new {
+  margin-top: 20rpx;
+  background: url('http://img1.cloudokids.cn/buyers/special/newLove.png') no-repeat center;
+  background-size:38rpx 38rpx;
+}

@@ -1,0 +1,114 @@
+<view class="newPage">
+  <view class="address" wx:if="{{addressDisplay}}" bindtap="selectAddress">
+    <view class="weui_cell_bd new_bd">
+      <view class="weui_cell_bd_p">添加地址</view>
+    </view>
+    <view class="weui_cell_new">
+      <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/littleCodeGoNext1.png"></image>
+    </view>
+  </view>
+  <view class="newaddress" bindtap="selectAddress" wx:else>
+    <view class="left">
+      <text class="h6" style="letter-spacing:4rpx;">收货人：</text>
+      <text class="h5">收货地址：</text>
+    </view>
+    <view class="right">
+      <text class="h6">{{selectAddress.name}}{{selectAddress.phone}}</text>
+      <text class="h5" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{selectAddress.provinceVo}}{{selectAddress.cityVo}}{{selectAddress.countyVo}}{{selectAddress.address}}</text>
+    </view>
+  </view>
+  <view class="cart">
+    <view class="text">商品信息</view>
+    <view class='shop' wx:for="{{shop}}" wx:key="">
+      <navigator url="url">
+        <image src="{{item.imgUrl}}"></image>
+      </navigator>
+      <view class="shopInfo floatLeft">
+        <text>{{item.brandName}}</text>
+        <text>{{item.goodsName}}</text>
+        <text>{{item.sizeName}} {{item.msg}}</text>
+        <text>¥{{item.salePrice}}*{{item.quantity}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="method" wx:if="{{shippingMethod}}">
+    <view class="tips">
+      <text>配送方式</text>
+    </view>
+    <view class="foreign">
+      <label wx:for="{{expressList}}" data-id="{{item.id}}" bindtap="selectList" wx:key="">
+        <text>{{item.name}} (¥{{item.freight}}) {{item.description}}</text>
+        <icon wx:if="{{item.checked}}" type="success" color="#000000" bindtap="selectList" data-id="{{item.id}}" />
+        <icon wx:else type="circle" bindtap="selectList" data-id="{{item.id}}" />
+      </label>
+    </view>
+  </view>
+  <view class="inland" wx:else>
+    <view class="tips">
+      <text>配送方式：</text>
+      <text style="float:right;margin-right:10px;">顺丰包邮</text>
+    </view>
+  </view>
+  <view class="card">
+    <label bindtap="giftCard">
+      <text class="name">礼品卡</text>
+      <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/littleCodeGoNext1.png"></image>
+      <text class="userCard">{{giftCard}}</text>
+    </label>
+    <label bindtap="discount">
+      <text class="name">优惠券</text>
+      <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/littleCodeGoNext1.png"></image>
+      <text class="userCard">{{discount}}</text>
+    </label>
+  </view>
+  <!-- <view class="point" wx:if="{{groupFlag}}">
+    <text>拼单活动</text>
+    <icon type="success" color="#000000" />
+  </view> -->
+  <view wx:if="{{point.point > 0}}" class="point" data-point="{{point.point}}" bindtap='selectPoint'>
+    <text>{{point.pointMsg}}</text>
+    <icon wx:if="{{checkedPoint}}" type="success" color="#000000" />
+    <icon wx:else type="circle" />
+  </view>
+  <view class="remark">
+    <text>订单备注</text>
+    <input type="text" bindinput='getUserComment' />
+  </view>
+  <view class="orderMoney">
+    <view class="moneyList">
+      <text>商品总额</text>
+      <text>¥{{money.actualAmount}}</text>
+    </view>
+    <view class="moneyList">
+      <text>活动优惠</text>
+      <text>¥{{money.preferentialPrice}}</text>
+    </view>
+    <view class="moneyList">
+      <text>配送</text>
+      <text>¥{{money.freight}}</text>
+    </view>
+    <view class="moneyList">
+      <text>优惠</text>
+      <text>¥{{money.discountMoney}}</text>
+    </view>
+    <view class="moneyList">
+      <text>礼品卡</text>
+      <text>¥{{money.giftMoney}}</text>
+    </view>
+    <view class="moneyList">
+      <text>积分</text>
+      <text>¥{{money.pointMoney}}</text>
+    </view>
+  </view>
+  <view class="submitOrder">
+    <view class="money">实付款:¥{{money.payMoney}}</view>
+    <button class="primary" bindtap='submitMyOrder'>去支付</button>
+  </view>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>

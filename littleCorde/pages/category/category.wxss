@@ -1,0 +1,27 @@
+.category{
+  width: 100%;
+}
+.categoryInfo{
+  height: 40px;
+  line-height: 40px;
+  font-size: 24rpx;
+  color: #010101;
+  border-bottom: 1px solid #eaeaea;
+  padding-left: 10px;
+  background:url("http://img1.cloudokids.cn/buyers/scene/littleCodeGoNext1.png") no-repeat 95% center;
+  background-size:12rpx 21rpx;
+}
+.categoryList{
+  height: 40px;
+  line-height: 40px;
+  font-size: 24rpx;
+  border-bottom: 1px solid #eaeaea;
+  background:url("http://img1.cloudokids.cn/buyers/scene/littleCodeGoNext3.png") no-repeat 95% center;
+  background-size:12rpx 21rpx;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+.goNext{
+  background: url("http://img1.cloudokids.cn/buyers/scene/littleCodeGoNext2.png") no-repeat 95% center;
+  background-size: 21rpx 12rpx;
+}

@@ -1,0 +1,345 @@
+<scroll-view style='height:{{windowHeight}}px' class='content' scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" wx:if='{{hiGoFlag}}'>
+  <view class='coupon'>
+    <view class='banner'>
+      <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon61.png'></image>
+    </view>
+    <view class='same'>
+      <view class='title'>880元无门槛现金券</view>
+      <view class='etitle'>· CONPON ·</view>
+      <view class='couponInfo' wx:if="{{!coupon}}">
+        <button bindtap='creatRedPacket'>
+          <text>发起</text>
+          <text>活动</text>
+        </button>
+      </view>
+      <view class='couponInfo' wx:if="{{coupon}}">
+        <button bindtap='goPlan'>
+          <text>查看</text>
+          <text>进度</text>
+        </button>
+      </view>
+      <view class='etitle' bindtap='tipsIn'>· 查看现金券使用规则 ·</view>
+    </view>
+    <view class='same' id='inToViewA'>
+      <view class='title'>直降+用券最低4折起</view>
+      <view class='etitle'>最抢手的超性价比单品</view>
+      <view class='imageSame'>
+        <navigator url='../newStyle/newStyle?specialId=2378&specialTopicId=2454&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon2.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data1}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class='more' wx:if="{{coupon}}">
+      <view class='same' id='inToViewB'>
+        <view class='title'>30元现金券使用专区</view>
+        <view class='etitle'>· 直降+用券最低4折起 ·</view>
+        <navigator class='seeMore' url='../newStyle/newStyle?specialId=2394&specialTopicId=2470&pageCome=1' hover-class='none'>查看更多</navigator>
+      </view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2379&specialTopicId=2455&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon3.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data2}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2380&specialTopicId=2456&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon4.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data3}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2381&specialTopicId=2457&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon5.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data4}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2382&specialTopicId=2458&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon6.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data5}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2383&specialTopicId=2459&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon7.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data6}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='list' style='width:698rpx;'>
+        <navigator hover-class='none' class='hotBrandList' wx:for="{{list}}" url='../newStyle/newStyle?specialId={{item.specialId}}&specialTopicId={{item.specialTopicId}}&pageCome=1' wx:key="">
+          <image src='{{item.image}}'></image>
+        </navigator>
+      </view>
+      <view class='same'>
+        <view class='title' id='inToViewC'>60元现金券使用专区</view>
+        <view class='etitle'>· 直降+用券最低4折起 ·</view>
+        <navigator class='seeMore' url='../newStyle/newStyle?specialId=2407&specialTopicId=2483&pageCome=1' hover-class='none'>查看更多</navigator>
+      </view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2396&specialTopicId=2472&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon8.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data7}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2397&specialTopicId=2473&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon9.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data8}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2398&specialTopicId=2474&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon10.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data9}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='list' style='width:698rpx;'>
+        <navigator hover-class='none' class='hotBrandList' wx:for="{{list1}}" url='../newStyle/newStyle?specialId={{item.specialId}}&specialTopicId={{item.specialTopicId}}&pageCome=1' wx:key="">
+          <image src='{{item.image}}'></image>
+        </navigator>
+      </view>
+      <view class='same' id='inToViewD'>
+        <view class='title'>100元现金券使用专区</view>
+        <view class='etitle'>· 直降+用券最低4折起 ·</view>
+        <navigator class='seeMore' url='../newStyle/newStyle?specialId=2414&specialTopicId=2490&pageCome=1' hover-class='none'>查看更多</navigator>
+      </view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2408&specialTopicId=2484&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon11.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data10}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2409&specialTopicId=2485&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon12.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data11}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='list' style='width:698rpx;'>
+        <navigator hover-class='none' class='hotBrandList' wx:for="{{list2}}" url='../newStyle/newStyle?specialId={{item.specialId}}&specialTopicId={{item.specialTopicId}}&pageCome=1' wx:key="">
+          <image src='{{item.image}}'></image>
+        </navigator>
+      </view>
+      <view class='same' id='inToViewE'>
+        <view class='title'>200元现金券使用专区</view>
+        <view class='etitle'>· 直降+用券最低4折起 ·</view>
+        <navigator class='seeMore' url='../newStyle/newStyle?specialId=2422&specialTopicId=2498&pageCome=1' hover-class='none'>查看更多</navigator>
+      </view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2415&specialTopicId=2491&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon13.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data12}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2416&specialTopicId=2492&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon14.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data13}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2417&specialTopicId=2493&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon15.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data14}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+      <view class='list' style='width:698rpx;'>
+        <navigator hover-class='none' class='hotBrandList' wx:for="{{list3}}" url='../newStyle/newStyle?specialId={{item.specialId}}&specialTopicId={{item.specialTopicId}}&pageCome=1' wx:key="">
+          <image src='{{item.image}}'></image>
+        </navigator>
+      </view>
+      <view class='same' id='inToViewF'>
+        <view class='title'>300元现金券使用专区</view>
+        <view class='etitle'>· 直降+用券最低4折起 ·</view>
+        <navigator class='seeMore' url='../newStyle/newStyle?specialId=2423&specialTopicId=2499&pageCome=1' hover-class='none'>查看更多</navigator>
+      </view>
+      <view class='imageSame1'>
+        <navigator url='../newStyle/newStyle?specialId=2423&specialTopicId=2499&pageCome=1' hover-class='none'>
+          <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon16.png'></image>
+        </navigator>
+      </view>
+      <scroll-view scroll-x="true" class="goodsList" style="height:480rpx;">
+        <view class="goodsWrap" wx:for="{{data15}}" wx:key="">
+          <view class="goodsLink" bindtap="goDetail" data-id="{{item.spuId}}">
+            <image src="{{item.img}}" class="imImg" lazy-load='true'></image>
+          </view>
+          <text class="goodsBrandName">{{item.brandName}}</text>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='salePrice'>¥{{item.salePrice}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class='text' wx:if="{{coupon}}">一一 · 已经到最底啦 · 一一</view>
+    <view wx:if="{{!coupon}}" bindtap='creatRedPacket' class='redPacketBtn'>领取红包，查看更多精彩优惠哦～</view>
+  </view>
+</scroll-view>
+<view class='groupTips' style='display:{{tips}}'>
+  <view class='text'>
+    <view class='groupTipsTitle'>规则</view>
+    <view class='newList'>1.活动时间：7月27日——8月2日</view>
+    <view class='newList'>2.每个账户只可分享并领取一次现金大礼包</view>
+    <view class='newList'>3.分享页面邀请3位好友加入，成功后每人可获得1份现金大礼包</view>
+    <view class='newList'>4.不同面额现金券适用于不同专区商品</view>
+    <view class='newList'>5.单笔订单不可叠加使用多张优惠券</view>
+  </view>
+  <view class='tipsDel' bindtap='tipsDel'></view>
+</view>
+<view class='loginBg' wx:if="{{loginBgFlag}}">
+  <view class='loginTips'>
+    <view class='loginText'>需要获取您的公开信息（昵称，头像等），请立即点击授权</view>
+    <button open-type="getUserInfo" class='loginBtn' bindgetuserinfo="bindGetUserInfo">立即授权</button>
+  </view>
+</view>
+<view class='loginBg' wx:if="{{shareFlag}}">
+  <view class='loginTips'>
+    <view class='loginText'>活动已创建，去邀请好友吧</view>
+    <button open-type="share" class='loginBtn'>邀请好友</button>
+  </view>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>
+<view class='navigation' bindtap='disapper' data-flag='{{flag}}' wx:if='{{hiGoFlag}}'>
+  <image src='https://img3.cloudokids.cn/h5img/scene/cloudoIcon4.png'></image>
+</view>
+<view class='navigationList {{flag?"navigationYes":"navigationNone"}}' wx:if='{{hiGoFlag}}'>
+  <view class='navigationListSame' bindtap='go' data-id="1"></view>
+  <view class='navigationListSame' bindtap='go' data-id="2"></view>
+  <view class='navigationListSame' bindtap='go' data-id="3"></view>
+  <view class='navigationListSame' bindtap='go' data-id="4"></view>
+  <view class='navigationListSame' bindtap='go' data-id="5"></view>
+  <view class='navigationListSame' bindtap='go' data-id="6"></view>
+</view>
+<view class='goIndex' bindtap='goIndex' wx:if='{{hiGoFlag}}'></view>
+<view class='gameOver' wx:if='{{!hiGoFlag}}'>活动已结束</view>

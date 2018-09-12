@@ -1,0 +1,183 @@
+<view style='overflow:{{isScorll}};height:{{windowHeight-50}}px;-webkit-overflow-scrolling: touch;'>
+  <view class='content'>
+    <view style=' position: relative'>
+      <swiper class='swiper-box' circular='true' indicator-dots='true' autoplay='true' duration='500' interval='3000' indicator-color="rgba(83,83,83,0.5)" indicator-active-color='rgba(83,83,83,1)'>
+        <swiper-item wx:for="{{shopInfo.spuImgList}}" wx:key="{{index}}">
+          <image src='{{item}}' class="slide-image" mode="aspectFill" lazy-load='true'></image>
+        </swiper-item>
+      </swiper>
+      <view class='barrage' wx:if="{{joinInvitationFlag}}">
+        <image src='{{barrage.wxImage}}' wx:if="{{barrage.wxImage != null && barrage.wxImage != ''}}"></image>
+        <image src='https://img3.cloudokids.cn/h5img/promotion/touxiang1.png' wx:else></image>
+        <view style='display:block;height:68rpx;width:470rpx;overflow:hidden; text-overflow: ellipsis;white-space: nowrap;'>
+          <text>{{barrage.wxName}}</text>
+          <text>成功抢购{{barrage.colorValue}}宝宝内裤</text>
+        </view>
+      </view>
+    </view>
+    <view class='country'>
+      <image src='https://img3.cloudokids.cn/h5img/scene/chinese_flag.png' wx:if="{{shopInfo.warehouseFlag==1}}"></image>
+      <image src='https://img3.cloudokids.cn/h5img/scene/british_flag.png' wx:if="{{shopInfo.warehouseFlag==2}}"></image>
+      <text>{{shopInfo.warehouseMsg}}</text>
+    </view>
+    <view class='goodsName'>{{shopInfo.activityDescription}}</view>
+    <view class='discription'>{{shopInfo.joinType}}</view>
+    <view class='all'>
+      <text>¥{{shopInfo.activityPrice}}</text>
+      <text>¥{{shopInfo.marketingPrice}}</text>
+      <text>{{shopInfo.isMail}}</text>
+      <text>{{shopInfo.amountValue}}</text>
+    </view>
+    <view class='number'>{{shopInfo.memberCount}}人已参团</view>
+  </view>
+  <view class='collage_group' wx:if="{{getGroupIsRookieGroupFlag}}">
+    <view class='group_title'>
+      <view wx:if="{{getGroupIsRookieGroup.status==0 && getGroupIsRookieGroup.number == 0}}">
+        <text class='deep'>拼团中</text>
+        <view style='text-align:center'>还有
+          <text class='deep_color'>{{getGroupIsRookieGroup.unpaid}}</text>人未支付</view>
+      </view>
+      <view wx:if="{{getGroupIsRookieGroup.status==0 && getGroupIsRookieGroup.number > 0}}">
+        <text class='deep'>拼团中</text>
+        <view style='text-align:center'>还差
+          <text class='deep_color'>{{getGroupIsRookieGroup.number}}</text>人成团
+          <text class='noColor'>时间仅剩</text>
+          <text class='deep_color'>{{endTime}}</text>
+        </view>
+      </view>
+      <view wx:if="{{getGroupIsRookieGroup.status==2}}">
+        <text class='deep'>拼团成功</text>
+        <view style='text-align:center'>我们将尽快安排发货</view>
+      </view>
+    </view>
+    <view class='group'>
+      <view class='loader' wx:for="{{getGroupIsRookieGroup.members}}" wx:key="{{index}}" style='flex:{{getGroupIsRookieGroup.amount}}'>
+        <image src='{{item.avatar}}'></image>
+        <text class='superMan' wx:if="{{index==0}}">团长</text>
+      </view>
+    </view>
+    <view class='tips'>请在15分钟内完成支付，超时将自动退出当前拼团</view>
+  </view>
+  <view class='same'>
+    <view class='title'>拼团玩法</view>
+    <image src='https://img3.cloudokids.cn/h5img/icon/iconFlow1.png'></image>
+  </view>
+  <view class='same'>
+    <view class='title'>拼团规则</view>
+    <view class='list'>
+      <view class='listSame'>
+        <view class='dot'></view>
+        <view class='text'>团满即拼团成功;</view>
+      </view>
+      <view class='listSame'>
+        <view class='dot'></view>
+        <view class='text'>限时24小时，拼团失败全额退款;</view>
+      </view>
+      <view class='listSame'>
+        <view class='dot'></view>
+        <view class='text'>拼团订单不可使用积分兑换;</view>
+      </view>
+      <view class='listSame'>
+        <view class='dot'></view>
+        <view class='text'>15分钟内未完成支付自动退出拼团;</view>
+      </view>
+    </view>
+  </view>
+  <view class='imgList'>
+    <view class='itemImg' wx:for="{{shopInfo.topicSpuImgs}}" wx:key="{{index}}">
+      <image src='{{item}}' mode='widthFix' lazy-load='true'></image>
+    </view>
+  </view>
+</view>
+<view class='footer'>
+  <button class='service' bindtap='weService' type="default-light" session-from="sobot|{{userInfo.nickName}}|{{userInfo.avatarUrl}}" open-type="contact">客服</button>
+  <view class='goodsSize' bindtap='size'>尺寸</view>
+  <view class="shopping colorGray" bindtap='buyShop'>
+    <text>¥{{shopInfo.marketingPrice}}</text>
+    <text>单独购买</text>
+  </view>
+  <block wx:if="{{!joinInvitationFlag}}">
+    <button class="shopping" bindtap='promptlyBuy' wx:if="{{getGroupIsRookieGroup.flag}}" disabled='{{getGroupIsRookieGroup.isBuy}}'>
+      <text>¥{{shopInfo.activityPrice}}</text>
+      <text wx:if="{{!isMember}}">发起拼团</text>
+      <text wx:if="{{isMember}}">已开团</text>
+    </button>
+    <button class="shopping" bindtap='addGroup' wx:if="{{!getGroupIsRookieGroup.flag}}" disabled='{{getGroupIsRookieGroup.isBuy}}'>
+      <text>¥{{shopInfo.activityPrice}}</text>
+      <text wx:if="{{isMember}}">已参团</text>
+      <text wx:if="{{!isMember}}">加入拼团</text>
+    </button>
+  </block>
+  <button class="shopping" bindtap='newPrice' wx:if="{{joinInvitationFlag}}">
+    <text>¥{{shopInfo.activityPrice}}</text>
+    <text>邀请价</text>
+  </button>
+</view>
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+  <action-sheet-item class="item">
+    <button open-type='share' data-id="1">分享给朋友</button>
+  </action-sheet-item>
+  <action-sheet-item class="item" bindtap="bindItemTap">生成卡片并分享</action-sheet-item>
+  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>
+<button class='pictureShare' bindtap='shareList'></button>
+<view class="newBody" style="display:{{display}}" bindtap="disappear"></view>
+<view class="moreSize" style="display:{{display}};">
+  <view class='headImg' style="display:{{display}}">
+    <image src='{{shopInfo.spuImgList[0]}}'></image>
+  </view>
+  <view class='head'>
+    <view class='goodsCost'>
+      <text class='goodsCostText'>¥{{goodsCost}}</text>
+      <view class='moreSizeCountry'>
+        <image src='https://img3.cloudokids.cn/h5img/scene/chinese_flag.png' wx:if="{{country==1}}"></image>
+        <image src='https://img3.cloudokids.cn/h5img/scene/british_flag.png' wx:if="{{country==2}}"></image>
+        <text>{{msg}}</text>
+      </view>
+    </view>
+    <view class='iconDel' bindtap='disappear'></view>
+  </view>
+  <view class='gray'>
+    <view class='grayTitle'>颜色</view>
+    <view class='grayList'>
+      <view class='{{item.hidden=="block"?"grayChecked":""}}' wx:for="{{getGoodsSkuBySpuId}}" wx:key='*this' bindtap='selectSize' data-title='{{item.title}}'>{{item.title}}</view>
+    </view>
+    <view class='grayTitle' wx:if="{{getGoodsSkuBySpuIdSize.length > 0}}">尺码</view>
+    <view class='grayList' wx:if="{{getGoodsSkuBySpuIdSize.length > 0}}">
+      <view class='{{item.hidden=="block"?"grayChecked":""}} {{item.stock==0?"stockCheck":""}}' type="button" wx:for="{{getGoodsSkuBySpuIdSize}}" data-point="{{item.point}}" data-cartId="{{item.cartId}}" wx:key="{{index}}" data-id="{{item.id}}" data-stock="{{item.stock}}"
+        data-price="{{item.salePrice}}" bindtap='selectSizeType'>{{item.specificationValue}}</view>
+    </view>
+  </view>
+  <view style='clear:both'></view>
+  <button data-id="{{cartBtnNumber}}" class="cartBtn {{disabled?'':'blackActive'}}" catchtap="addCart" disabled="{{disabled}}">确定</button>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>
+<view class='canvasBg' hidden='{{spuCanvas}}' style='height:{{windowHeight}};width:100%;overflow:hidden;'></view>
+<view class='spuCanvas' hidden='{{spuCanvas}}'>
+  <canvas class='spuCanvasImg' canvas-id='spuCanvas' disable-scroll='true' bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"></canvas>
+  <view>
+    <button class='btn1' bindtap='saveSpuCanvasImg'>保存到相册</button>
+    <button class='btn2' bindtap='cancelSpuCanvasImg'></button>
+  </view>
+</view>
+<view class='loginBg' wx:if="{{loginBgFlag}}">
+  <view class='loginTips'>
+    <view class='loginText'>需要获取您的公开信息（昵称，头像等），请立即点击授权</view>
+    <button open-type="getUserInfo" class='loginBtn' bindgetuserinfo="bindGetUserInfo">立即授权</button>
+  </view>
+</view>
+<view class='oldTipsBg' wx:if="{{oldTipsFlag}}"></view>
+<view class='oldTips' wx:if="{{oldTipsFlag}}">
+  <view class='oldTitle'>您是棵朵老用户啦～</view>
+  <view class='oldTitle'>请开团同享新人优惠</view>
+  <button bindtap='goPlayPage'>前往开团</button>
+</view>
+<button class='goIndex' bindtap='goIndex'></button>
+<view class='infoTips' wx:if='{{joinInvitationFlag&&getMemberHasFirmOrder}}'>您已获得1次抢购机会</view>
+<view class='infoTips1' wx:if='{{joinInvitationFlag&&getMemberHasFirmOrder}}'></view>

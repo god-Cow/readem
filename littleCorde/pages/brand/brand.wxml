@@ -1,0 +1,42 @@
+<scroll-view class="container" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true">
+  <block wx:for="{{brand}}" wx:key="">
+    <view class="flex item">
+      <view class="item_left">
+        <text class="topHeader" id="{{ 'inToView'+item.header}}">{{item.header}}</text>
+        <view wx:for="{{item.datas}}" class='brandName' wx:key="">
+          <view class="classname">
+            <text bindtap='goBrandList' class="nextData" data-id="{{item.id}}" data-title="{{item.enName}}">{{item.enName}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+<view class="orientation_region">
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="A">A</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="B">B</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="C">C</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="D">D</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="E">E</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="F">F</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="G">G</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="H">H</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="I">I</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="J">J</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="K">K</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="L">L</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="M">M</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="N">N</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="O">O</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="P">P</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="Q">Q</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="R">R</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="S">S</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="T">T</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="U">U</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="V">V</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="W">W</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="X">X</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="Y">Y</view>
+ <view class="orientation_city" bindtap="scrollToViewFn" data-id="Z">Z</view>
+</view>

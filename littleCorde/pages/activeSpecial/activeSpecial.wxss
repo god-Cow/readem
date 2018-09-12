@@ -1,0 +1,16 @@
+page{
+  background: #f3f3f3;
+}
+.content{
+  width: 100%;
+}
+.content .list{
+  width: 670rpx;
+  height: 446.6667rpx;
+  margin: 30rpx auto;
+}
+.content .list image{
+  width: 100%;
+  height: 402rpx;
+  display: block;
+}

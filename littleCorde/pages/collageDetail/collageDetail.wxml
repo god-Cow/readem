@@ -1,0 +1,135 @@
+<!-- 支付状态开始 -->
+<!-- 待支付 -->
+<view class='pay_status' hidden='hidden' wx:if="{{orderInfo.payStatus==0 && orderInfo.orderStatus != 102}}">
+  <view class='pay_status_left'>
+    <view class='big'>待支付</view>
+    <view class='small'>请在15分钟内完成支付,超时订单将自动取消</view>
+  </view>
+  <view class='pay_status_rit'>
+    <image src='http://img3.cloudokids.cn/h5img/scene/cld_collage_pay.png'></image>
+  </view>
+</view>
+<!--  拼团中-->
+<view class='pay_status' wx:if="{{orderInfo.payStatus==1&&getGroupIsRookieGroup.status==0}}">
+  <view class='pay_status_left'>
+    <view class='big'>拼团中</view>
+    <view class='small'>拼团人数未满员,快去邀请好友享受优惠吧</view>
+  </view>
+  <view class='pay_status_rit'>
+    <image src='http://img3.cloudokids.cn/h5img/scene/cld_collage_going.png'></image>
+  </view>
+</view>
+<!--  拼团成功-->
+<view class='pay_status' wx:if="{{orderInfo.payStatus==1&&(getGroupIsRookieGroup.status==2 || getGroupIsRookieGroup.status==3)}}">
+  <view class='pay_status_left'>
+    <view class='big'>拼团成功</view>
+    <view class='small'>感谢您在棵朵购物,再次拼团,可继续享受优惠</view>
+  </view>
+  <view class='pay_status_rit'>
+    <image src='http://img3.cloudokids.cn/h5img/scene/cld_collage_sucess.png'></image>
+  </view>
+</view>
+<!-- 失败 -->
+<view class='pay_status' wx:if="{{getGroupIsRookieGroup.status==1}}">
+  <view class='pay_status_left'>
+    <view class='big'>拼团失败</view>
+    <view class='small'>金额将退回原支付账户,请注意查收</view>
+  </view>
+  <view class='pay_status_rit'>
+    <image src='http://img3.cloudokids.cn/h5img/scene/cld_collage_faild.png'></image>
+  </view>
+</view>
+<!-- 支付状态结束 -->
+<!-- 拼团中开始 -->
+<view class='collage_group' wx:if="{{getGroupIsRookieGroupFlag && orderInfo.orderStatus != 102}}">
+  <view class='group_title'>
+    <view wx:if="{{getGroupIsRookieGroup.unpaid > 0 && getGroupIsRookieGroup.number == 0}}">
+      <text class='deep'>拼团中</text>
+      <view style='text-align:center'>还有
+        <text class='deep_color'>{{getGroupIsRookieGroup.unpaid}}</text>人未支付</view>
+    </view>
+    <view wx:if="{{getGroupIsRookieGroup.status==0 && getGroupIsRookieGroup.number > 0}}">
+      <text class='deep'>拼团中</text>
+      <view style='text-align:center'>还差
+        <text class='deep_color'>{{getGroupIsRookieGroup.number}}</text>人成团
+        <text class='noColor'>时间仅剩</text>
+        <text class='deep_color'>{{endTime}}</text>
+      </view>
+    </view>
+    <view wx:if="{{orderInfo.payStatus==1&&(getGroupIsRookieGroup.status==2 || getGroupIsRookieGroup.status==3)}}">
+      <text class='deep'>拼团成功</text>
+      <view style='text-align:center'>我们将尽快安排发货</view>
+    </view>
+  </view>
+  <view class='group'>
+    <view class='loader' wx:for="{{getGroupIsRookieGroup.members}}" wx:key="{{index}}" style='flex:{{getGroupIsRookieGroup.amount}}'>
+      <image src='{{item.avatar}}'></image>
+      <text class='superMan' wx:if="{{index==0}}">团长</text>
+    </view>
+  </view>
+</view>
+<!-- 拼团中结束 -->
+<view wx:for="{{orderShop}}" wx:key="{{index}}">
+  <view class='wayBill' wx:if="{{item.status==1}}" bindtap='goExpressSn' data-id="{{item.expressSn}}">
+    <view class='wayBillInfo'>{{item.statusVo}}
+      <text>运单号：{{item.expressSn}}</text>
+    </view>
+    <image src='https://img1.cloudokids.cn/buyers/weiXinMiniApps/littleCodeGoNext1.png'></image>
+  </view>
+  <view class='wayBill' wx:else>
+    <view class='wayBillInfo'>{{item.statusVo}}</view>
+  </view>
+  <view class="cart">
+    <view class='shop' wx:for="{{item.list}}" wx:key="{{index}}">
+      <view class='img' url="url" bindtap="goDetail" data-id="{{item.spuId}}">
+        <image src="{{item.imgUrl}}"></image>
+      </view>
+      <view class="shopInfo floatLeft">
+        <view>{{item.brandName}}</view>
+        <view>
+          <text>{{item.goodsName}}</text>
+          <text wx:if="{{item.msg != null && item.msg != 'null'}}">{{item.msg}}</text>
+        </view>
+        <view>{{item.specificationValue}} {{item.warehouseType}}</view>
+        <view>¥{{item.salePrice}}*{{item.quantity}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="address">
+  <text>配送：{{orderInfo.shippingName}} {{orderInfo.shippingMobile}}</text>
+  <text>{{orderInfo.shippingProvince}}{{orderInfo.shippingCity}}{{orderInfo.shippingCounty}} </text>
+  <text>{{orderInfo.shippingAddress}}</text>
+</view>
+<view class="orderMoney">
+  <view class="moneyList">
+    <text>商品总额</text>
+    <text>¥{{orderInfo.amount}}</text>
+  </view>
+  <view class="moneyList">
+    <text>活动优惠</text>
+    <text>¥{{orderInfo.activityDiscountMoney}}</text>
+  </view>
+  <view class="moneyList">
+    <text>配送</text>
+    <text>¥{{orderInfo.shippingCost}}</text>
+  </view>
+  <view class="moneyList">
+    <text>优惠券优惠</text>
+    <text>¥{{orderInfo.discountMoney}}</text>
+  </view>
+  <view class="moneyList">
+    <text>礼品卡</text>
+    <text>¥{{orderInfo.giftMoney}}</text>
+  </view>
+  <view class="moneyList" style="border-bottom:1px solid #eaeaea">
+    <text>积分</text>
+    <text>¥{{orderInfo.point}}</text>
+  </view>
+  <view class="moneyList">
+    <text>订单总额</text>
+    <text>¥{{orderInfo.payMoney}}</text>
+  </view>
+</view>
+<button class="primary" wx:if="{{orderInfo.payStatus==0 && orderInfo.orderStatus != 102}}" bindtap='payOrder'>重新支付</button>
+<!-- <button class="primary" wx:if="{{orderInfo.payStatus==1&&getGroupIsRookieGroup.number > 0 && getGroupIsRookieGroup.groupType == 5}}" open-type='share'>邀请好友</button> -->

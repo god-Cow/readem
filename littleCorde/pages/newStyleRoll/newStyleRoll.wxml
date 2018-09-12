@@ -1,0 +1,354 @@
+<view class='loginBg' wx:if="{{loginBgFlag}}">
+  <view class='loginTips'>
+    <view class='loginText'>需要获取您的公开信息（昵称，头像等），请立即点击授权</view>
+    <button open-type="getUserInfo" class='loginBtn' bindgetuserinfo="bindGetUserInfo">立即授权</button>
+  </view>
+</view>
+
+<!-- <scroll-view scroll-y="true" class='viewBrandInfo' bindscrolltoupper="brandSupper" bindscrolltolower="downLoadBrand" scroll-into-view="" scroll-top="" style="display:{{showBoxInfo}}; height:{{scrollHeight-35}}px;" bindtap="viewToggleInfo">
+  
+</scroll-view> -->
+
+<view class="infoTop" bindtap='viewToggleInfo' wx:if="{{!outcome && groups.length}}">{{groups.length}}人在拼场，直接加入，全场享拼场价</view>
+<view class="brandWeTitle" bindtap="viewToggle" wx:if="{{outcome}}">您正在参加以下拼场活动，场内商品拼场价购买</view>
+
+<scroll-view scroll-y="true" class="viewWindow {{(groups.length || outcome) ? 'Box2' : ''}}" bindscrolltoupper="upper" bindscrolltolower="bindDownLoad" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+
+  <view class='goodsList' id="top">
+    <!-- group -->
+    <view class="brandIng" wx:if="{{!outcome && groups.length}}" id="brandIng">
+      <view class="groupItem">
+        <swiper indicator-dots='{{false}}' autoplay='true' interval='3000' duration='500' circular='true' vertical='true' display-multiple-items='{{groups.length>=2?2:1}}' style='height:{{groups.length>=2?"280":"140"}}rpx'>
+          <swiper-item wx:for="{{groups}}" wx:key="{{wrapIndex}}" wx:for-item="wrapItem" wx:for-index="wrapIndex">
+            <view class='listBox' data-close="false">
+              <view class="listLine">
+                <view class="lineTab">
+                  <view class="header">
+                    <image src="{{wrapItem.groupBookingMembers[0].avatar}}"></image>
+                  </view>
+                  <view class="name">{{wrapItem.groupBookingMembers[0].name}}</view>
+                </view>
+                <view class='lineTab'>
+                  <view>还差
+                    <text class="person">1人</text>成团</view>
+                  <view class="color_tint" wx:if="{{clock[wrapIndex]}}">剩余{{clock[wrapIndex]}}</view>
+                </view>
+                <view class='lineTab' data-group-id="{{wrapItem.groupId}}" bindtap="joinGroup" data-group-id="{{wrapItem.groupId}}">
+                  <text>加入拼场</text>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>
+
+        <view class='groupRule'>
+          <view>拼场规则</view>
+          <view class='color_tint'>2人成团</view>
+        </view>
+      </view>
+      <!-- {{((!outcome && groups.length) || outcome)?'filtrateActive1':'filtrateActive2'}} -->
+    </view>
+
+    <!-- filtrate -->
+    <view class="filtrateWrap" id="filtrate">
+      <view class="filtrate {{(!groups.length && !outcome) ? 'navFixed' : ''}} {{outcome || (groups.length && !outcome && navFixed)? 'navFixed2' : ''}}">
+        <view class="rank {{goNext==false?'goNext':''}}" bindtap="goRanking">排序</view>
+        <view class="filter" bindtap="goFilter">筛选</view>
+        <view class="rankContent" hidden="{{isHidden}}">
+          <block wx:for="{{rankingData}}" wx:key="">
+            <view class="singleWrap">
+              <view class="singleRankContent" bindtap="goCheck" data-index="{{item.index}}">{{item.name}}</view>
+              <view class="checkMark" hidden="{{item.checkHidden}}"></view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="container">
+    <!-- product  {{((!outcome && groups.length) || outcome)? 'Box2' : 'Box3'}} -->
+    <view class="goodsList">
+      <view class="goodsBox">
+        <block wx:for="{{goodsList}}" wx:key="">
+          <view class='listItem' bindtap="goDetial" data-spu-id='{{item.spuId}}'>
+            <view class="img">
+              <image class="proImg" src="{{item.imgUrl}}" mode='widthFix'></image>
+              <image wx:if="{{!item.haveStock}}" class='isDie' src="https://img3.cloudokids.cn/h5img/scene/order-die.png"></image>
+            </view>
+            <view class="listInfo">
+              <view>
+                <view class="title"> {{item.goodsName}}</view>
+                <view class="title" wx:if="{{item.brandName}}"> {{item.brandName}}</view>
+                <view class="flgTips color_tint" style='margin-left:0'>{{item.warehouseMsg}}</view>
+              </view>
+              <view class="priceItem">
+                <view>
+                  拼场价￥
+                  <text>{{item.activityPrice}}</text>
+                  <text class="color_tint">￥{{item.marketingPrice}}</text>
+                </view>
+              </view>
+              <view class='overPlusStock' wx:if='{{item.overPlusStock <= 3 && item.overPlusStock >0}}'>即将抢光</view>
+            </view>
+            <view class='addView' catchtap="buyShop" data-spu-id='{{item.spuId}}'>
+              <view class="addBtn"></view>
+            </view>
+          </view>
+        </block>
+
+        <view class="listNoData" wx:if="{{listNoData}}">暂无数据</view>
+      </view>
+    </view>
+
+  </view>
+</scroll-view>
+
+<view class="bagBarItem">
+  <view class="bag" bindtap="carToggle">
+    <text class='infoBox'>{{carData.sum ? carData.sum : 0}}</text>
+    <view wx:if='{{carData.sum > 0}}' class='infoBox2'>
+      <text>原价: ¥{{carData.marketPrice}}</text>
+      <text>已选择{{carData.sum ? carData.sum : 0}}件商品</text>
+    </view>
+    <view wx:else>
+      <text>已选择{{carData.sum ? carData.sum : 0}}件商品</text>
+    </view>
+  </view>
+  <view class="goBuy" data-car-sum="{{carData.sum}}" bindtap="goCard">
+    <view>{{outcome ? carData.discounts :carData.amount }} </view>
+    <view wx:if="{{outcome}}">拼场价购买</view>
+    <view wx:else>直接购买</view>
+  </view>
+  <view class="goGroup" bindtap="goGroup" data-activity-id="{{activityId}}" data-car-sum="{{carData.sum}}" wx:if="{{!outcome}}">
+    <view>{{carData.discounts}}</view>
+    <view>发起拼场</view>
+  </view>
+</view>
+
+<scroll-view scroll-y="true" class='viewBrand' bindscrolltoupper="brandSupper" bindscrolltolower="downLoadBrand" scroll-into-view="" scroll-top="" style="display:{{showBox}}; height:{{scrollHeight-35}}px;" bindtap="viewToggle">
+  <view class="brandWe">
+    <block wx:for="{{userList}}" wx:key="" wx:for-item="wrapItem" wx:for-index="wrapIndex">
+      <view class="listLine {{(userListNow == wrapIndex) ? 'more' : '' }}" data-activity-id="{{wrapItem.activityId}}" catchtap="goNewStyle">
+        <view class="lineTab">
+          <block wx:for="{{wrapItem.groupBookingMembers}}" wx:key="">
+            <view class="header">
+              <image src="{{item.avatar}}"></image>
+            </view>
+          </block>
+        </view>
+        <view class='lineTab'>
+          <view>成功加入 {{wrapItem.title}}</view>
+          <view class="color_tint" style='margin-left:0' wx:if="{{clock[wrapIndex]}}">时间仅剩
+            <text class="colorRed"> {{clock[wrapIndex]}}</text>
+          </view>
+        </view>
+        <view class='lineTab' data-group-id="{{wrapItem.groupId}}">
+          <text class="colorRed" wx:if="{{userListNow == wrapIndex}}">当前场</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+<!-- carView -->
+<scroll-view scroll-y="true" class='viewCarList' bindscrolltoupper="carSupper" bindscrolltolower="downLoadCar" bindtap="carToggle" style="display:{{showCarBox}}">
+  <view class="carWrap goodsBox">
+    <view class='cartList {{item.isTouchMove?"newActive":""}}' wx:for="{{carData.goodsList}}" wx:key="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{item.skuId}}">
+      <view class="carItem" data-activity-id="{{item.activityId}}" catchtap="notHideCar">
+        <view class='listItem'>
+          <view class="img">
+            <image class="proImg" src="{{item.imgUrl}}" mode='widthFix'></image>
+          </view>
+          <view class="listInfo">
+            <view>
+              <view class="title"> {{item.goodsName}}</view>
+              <view class="title" wx:if="{{item.brandName}}"> {{item.brandName}}</view>
+              <view class="flgTips color_tint">{{item.warehouseMsg}}</view>
+            </view>
+            <view class="priceItem">
+              <view>
+                拼场价￥
+                <text>{{item.costPrice}}</text>
+                <text class="color_tint">￥{{item.marketPrice}}</text>
+              </view>
+            </view>
+            <view class='addView'>
+              <view class='jian' bindtap="minusCount" data-index="{{item.skuId}}" data-quantity="{{item.quantity}}">
+                <image src='https://img3.cloudokids.cn/h5img/promotion/jian.png' mode='widthFix'></image>
+              </view>
+              <view class="letter">X {{item.quantity}}</view>
+              <view class='jia' data-index="{{item.skuId}}" data-quantity="{{item.quantity}}" bindtap="addCount">
+                <image src='https://img3.cloudokids.cn/h5img/promotion/jia.png' mode='widthFix'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <text class="del" catchtap="del" data-index="{{item.skuId}}">删除</text>
+      </view>
+    </view>
+
+  </view>
+</scroll-view>
+
+<!-- toast -->
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>
+<!-- 尺码 -->
+<view class="newBody" style="display:{{display}}" bindtap="disappear"></view>
+<view class="moreSize" style="display:{{display}}">
+  <view class='headImg' style="display:{{display}}">
+    <image src='{{imgUrl}}'></image>
+  </view>
+  <view class='head'>
+    <view class='goodsCost'>
+      <view class='goodsCostText'>
+        拼场价
+        <text> ¥{{goodsCost}}</text>
+        <text> ¥{{marketingprice}}</text>
+      </view>
+      <view class='moreSizeCountry'>
+        <image src='https://img3.cloudokids.cn/h5img/scene/chinese_flag.png' wx:if="{{country==1}}"></image>
+        <image src='https://img3.cloudokids.cn/h5img/scene/british_flag.png' wx:if="{{country==2}}"></image>
+        <text>{{msg}}</text>
+      </view>
+    </view>
+    <view class='iconDel' bindtap='disappear'></view>
+  </view>
+  <view class='gray'>
+    <view class='grayTitle'>尺码</view>
+    <view class='grayList'>
+      <view class='{{item.hidden=="block"?"grayChecked":""}} {{item.stock==0?"stockCheck":""}}' type="button" wx:for="{{getGoodsSkuBySpuId}}" data-point="{{item.point}}" data-cartId="{{item.cartId}}" wx:key="" data-id="{{item.id}}" data-stock="{{item.stock}}"
+        data-price="{{item.salePrice}}" bindtap='selectSize'>{{item.specificationValue}}</view>
+    </view>
+    <view class='grayTitle'>数量</view>
+    <view class="shopHandle floatLeft">
+      <text class="min" bindtap='min'>-</text>
+      <view>{{quantity}}</view>
+      <text class="max" bindtap='max'>+</text>
+    </view>
+  </view>
+  <view style='clear:both'></view>
+  <form report-submit='true' bindsubmit='submit'>
+    <button type='default' data-id="1" form-type='submit' class="cartBtn {{disabled?'':'blackActive'}}" disabled="{{disabled}}" bindtap="addCart">确定</button>
+  </form>
+</view>
+
+<!--  筛选  {{allWrapHidden == "none"?"slowComing":"slowGo"}}' style="height:{{scrollHeight}}px; -->
+<view class='allWrap  {{allWrapHidden == "none"?"slowComing":"slowGo"}}'>
+  <view class='filtrate' style="min-height:{{scrollHeight}}px;">
+    <view class='aboutInfo' style="height:{{scrollHeight - 50}}px;">
+      <view class='same'>
+        <view class='text'>价格区间</view>
+        <view id="price">
+          <input type='number' pattern="[0-9]*" placeholder='最低价格' class="minPrice" bindinput='minPrice' value='{{minPrice}}'></input>
+          <view style='width:20rpx;line-height:40rpx;height:60rpx;color:#999;float:left;margin-left:20rpx'>-</view>
+          <input type='number' pattern="[0-9]*" placeholder='最高价格' class="maxPrice" bindinput='maxPrice' value='{{maxPrice}}'></input>
+        </view>
+      </view>
+      <view class="same Brand {{brand.length > 0 ?'':'noDisplay'}}">
+        <view class='text {{brand.length > 3 ? "brandWrap":""}} {{brandStatus == "none"?"":"changeBg"}}' wx:if="{{brand.length > 3}}" bindtap="brandStatus">品牌</view>
+        <view class='text {{brand.length > 3 ? "brandWrap":""}} {{brandStatus == "none"?"":"changeBg"}}' wx:else>品牌</view>
+        <view class='children {{brandStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="brand">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{brand}}" bindtap='BrandClick' wx:key="*this">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same sex {{gender.length > 0 ? '':'noDisplay'}}">
+        <view class='text'>性别</view>
+        <view class='children'>
+          <view class="childrenList" id="sex">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{gender}}" bindtap='genderClick' wx:key="*this">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same age {{value.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{value.length > 3 ?"ageWrap":""}} {{ageStatus == "none"?"":"changeBg"}}' bindtap="ageStatus" wx:if="{{value.length > 3}}">年龄</view>
+        <view class='text {{value.length > 3 ?"ageWrap":""}} {{ageStatus == "none"?"":"changeBg"}}' wx:else>年龄</view>
+        <view class='children {{ageStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="age">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{value}}" bindtap='ageClick' wx:key="*this">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same classify {{category.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{category.length > 3 ?"classifyWrap":""}} {{classifyStatus == "none"?"":"changeBg"}}' bindtap="classifyStatus" wx:if="{{category.length > 3}}">分类</view>
+        <view class='text {{category.length > 3 ?"classifyWrap":""}} {{classifyStatus == "none"?"":"changeBg"}}' wx:else>分类</view>
+        <view class='children {{classifyStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="classify">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{category}}" bindtap='classifyClick' wx:key="*this">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same color {{color.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{color.length > 3 ?"colorWrap":""}} {{colorStatus == "none"?"":"changeBg"}}' bindtap="colorStatus" wx:if="{{color.length > 3}}">颜色</view>
+        <view class='text {{color.length > 3 ?"colorWrap":""}} {{colorStatus == "none"?"":"changeBg"}}' wx:else>颜色</view>
+        <view class='children {{colorStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="color">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{color}}" bindtap='colorClick' wx:key="*this">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same size {{size.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{size.length > 3 ?"sizeWrap":""}} {{sizeStatus == "none"?"":"changeBg"}}' bindtap="sizeStatus" wx:if="{{size.length > 3}}">尺码</view>
+        <view class='text {{size.length > 3 ?"sizeWrap":""}} {{sizeStatus == "none"?"":"changeBg"}}' wx:else>尺码</view>
+        <view class='children {{sizeStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="size">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{size}}" bindtap='sizeClick' wx:key="*this">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same season {{attr.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{attr.length > 3 ?"seasonWrap":""}} {{attrStatus == "none"?"":"changeBg"}}' bindtap="attrStatus" wx:if="{{attr.length > 3}}">季节</view>
+        <view class='text {{attr.length > 3 ?"seasonWrap":""}} {{attrStatus == "none"?"":"changeBg"}}' wx:else>季节</view>
+        <view class='children {{attrStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="season">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{attr}}" bindtap='attrClick' wx:key="*this">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same childCategory {{childCategory.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{childCategory.length > 3 ?"childCategoryWrap":""}} {{childCategoryStatus == "none"?"":"changeBg"}}' bindtap="childCategoryStatus" wx:if="{{childCategory.length > 3}}">子分类</view>
+        <view class='text {{childCategory.length > 3 ?"childCategoryWrap":""}} {{childCategoryStatus == "none"?"":"changeBg"}}' wx:else>子分类</view>
+        <view class='children {{childCategoryStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="season">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{childCategory}}" bindtap='childCategoryClick' wx:key="*this">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="buttonWrap">
+      <button class="reset" bindtap='reset'>重置</button>
+      <button class='confirm' bindtap='confirm'>确定</button>
+    </view>
+  </view>
+  <view class='shade' style="height:{{scrollHeight}}px;" bindtap='closeBg'></view>
+</view>
+
+<!-- share -->
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+  <action-sheet-item class="item">
+    <button open-type='share'>分享给朋友</button>
+  </action-sheet-item>
+  <action-sheet-item class="item" bindtap="bindItemTap">生成卡片并分享</action-sheet-item>
+  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>
+<view class='canvasBg' wx:if="{{imgFlag}}" style='height:{{scrollHeight}}px;width:{{windowWidth}}px;overflow:hidden;'></view>
+<view class='spuCanvas' wx:if="{{imgFlag}}">
+  <canvas class='spuCanvasImg' canvas-id='spuCanvas' disable-scroll='true' bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"></canvas>
+  <button class='btn1' bindtap='saveSpuCanvasImg'>保存到相册</button>
+  <button class='btn2' catchtap='delShare'></button>
+</view>
+
+<view class="nav-tool">
+  <button class='pictureShare' bindtap='shareList'></button>
+</view>
+
+<view class="page-top-line"></view>
+<button class='goIndex' bindtap='goIndex'></button>

@@ -1,0 +1,45 @@
+<view class="ticket">
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">礼品卡</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">优惠券</view>
+  </view>
+  <view class="grayBg"></view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height:{{winHeight-54}}px">
+  <swiper-item>
+    <scroll-view scroll-y="true" style="height:{{winHeight-104}}px">
+      <view class="same coupon" wx:for="{{coupon}}" wx:key="">
+        <view class="left">
+          <text class="name">{{item.title}}</text>
+          <text class="startTime">{{item.beginTime}}</text>
+          <text class="endTime">{{item.endTime}}</text> 
+          <view class="orderInfo">{{item.applyVo}}：{{item.description}}</view>
+        </view>
+        <view class="right">
+          <text class="price">{{item.surplus}}</text>
+          <text class="number">{{item.cardNumber}}</text>
+        </view>
+      </view>      
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="true" style="height:{{winHeight-104}}px">
+      <view class="same discount" wx:for="{{discount}}" wx:key="" bindtap='goDiscount' data-activityUrlVO='{{item.activityUrlVO}}'  data-specialId='{{item.specialId}}' data-brandId='{{item.brandId}}' data-categoryId="{{item.categoryId}}" data-beginTime='{{item.beginTime}}'>
+        <view class="left">
+          <text class="name">{{item.title}}</text>
+          <text class="startTime">{{item.beginTime}}</text>
+          <text class="endTime">{{item.endTime}}</text> 
+          <view class="orderInfo">{{item.applyVo}}：{{item.description}}</view>
+        </view>
+        <view class="right">
+          <text class="price" wx:if="{{item.type == 1}}">{{item.value}}</text>
+          <text class="price" wx:else>{{item.value}}</text>
+          <text class="number">{{item.cardNumber}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<button class="primary {{currentTab==0 ? 'active' : ''}}" data-index="礼品卡" bindtap="convert">兑换礼品卡</button>
+<button class="primary {{currentTab==1 ? 'active' : ''}}" data-index="优惠券" bindtap="convert">兑换优惠券</button>
+

@@ -1,0 +1,5 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='tips'>尺码仅供参考</view>
+<view class="sizeGuide" >
+  <template is="wxParse" data="{{wxParseData:newData.nodes}}" />
+</view>

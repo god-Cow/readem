@@ -1,0 +1,90 @@
+<view class="list">
+  <text>姓名</text>
+</view>
+<view class="content">
+  <view class="same">
+    <text>姓名</text>
+    <input type="text" bindinput="username" value="{{username}}"/>
+  </view>
+</view>
+<view class="list">
+  <text>联系电话</text>
+</view>
+<view class="content">
+  <view class="same">
+    <text>电话</text>
+    <input type="text" bindinput="phone" value="{{phone}}"/>
+  </view>
+</view>
+<view class="list">
+  <text>地址</text>
+</view>
+<view class="content">
+<view class="same" style="border-bottom:0">
+    <text>所在地址</text>
+    <view class="address" bindtap="open">
+      <image src="https://img1.cloudokids.cn/buyers/weiXinMiniApps/littleCodeGoNext1.png"></image>
+      <text>{{newAddress}}</text>
+    </view>
+  </view>
+  <view class="same">
+    <text>详细地址</text>
+    <input type="text" bindinput="location" value="{{location}}"/>
+  </view>
+</view>
+<view class="list">
+  <text>邮编</text>
+</view>
+<view class="content">
+  <view class="same">
+    <text>邮编</text>
+    <input type="text" bindinput="postcode" value="{{postcode}}"/>
+  </view>
+</view>
+<view class="list">
+  <text>身份证号</text>
+</view>
+<view class="content">
+  <view class="same">
+    <text>身份证号</text>
+    <input type="text" bindinput="idCardNumber" value="{{idCardNumber}}"/>
+  </view>
+</view>
+<view class="list">
+  <text>默认地址</text>
+</view>
+<view class="content">
+  <view class="same">
+    <text>设为默认</text>
+    <icon wx:if="{{checked}}" type="success" color="#000000" bindtap="selectList"/>
+    <icon wx:else type="circle" bindtap="selectList"/>
+  </view>
+</view>
+<view>
+  <button class="btn" bindtap="addAddress">保存</button>
+</view>
+<view wx:if="{{condition}}" class="citypicker">
+  <picker-view indicator-style="height: 35px;" style="width: 100%; height: 220px;background:#aaa" value="{{value}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+      <view bindtap="open" class="city-cancel">取消</view>
+      <view bindtap="confirm" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{provinces}}" wx:key="{{index}}" data-id="{{item.id}}" class="addressInfo">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" wx:key="{{index}}" data-id="{{item.id}}" class="addressInfo">{{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{countys}}" wx:key="{{index}}" data-id="{{item.id}}" class="addressInfo">{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">  
+  <view class="toast_content">  
+    <view class="toast_content_text">  
+      {{toastText}}  
+    </view>  
+  </view>  
+</view>
+

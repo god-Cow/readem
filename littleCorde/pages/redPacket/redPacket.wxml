@@ -1,0 +1,55 @@
+<view class='content' wx:if='{{hiGoFlag}}'>
+  <view class='banner'>
+    <image src='https://img3.cloudokids.cn/h5img/specialSale/getCoupon62.jpg'></image>
+  </view>
+  <view class='express'>
+    <view class='text' wx:if="{{currentQuantity<3}}">活动当前人数<text>{{currentQuantity}}</text>人，还差<text>{{remainingQuantity}}</text>人</view>
+    <view class='text' wx:else>活动已完成，马上领取红包吧</view>
+    <view style='overflow:hidden;width:568rpx;margin:0 auto'>
+      <view class='expressInfo marginLeft'>
+        <view class='redPacketImg'>
+          <view class='{{list[0].flag?"img":"newImg"}}'>
+            <image src='{{list[0].avatar}}'></image>
+          </view>
+          <text class='name'>{{list[0].nickname}}</text>
+        </view>
+      </view>
+      <view class='line'></view>
+      <view class='expressInfo'>
+        <view class='redPacketImg'>
+          <view class='{{list[1].flag?"img":"newImg"}}'>
+            <image src='{{list[1].avatar}}'></image>
+          </view>
+          <text class='name'>{{list[1].nickname}}</text>
+        </view>
+      </view>
+      <view class='line'></view>
+      <view class='expressInfo'>
+        <view class='redPacketImg'>
+          <view class='{{list[2].flag?"img":"newImg"}}'>
+            <image src='{{list[2].avatar}}'></image>
+          </view>
+          <text class='name'>{{list[2].nickname}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='btn'>
+    <button open-type='share' class='share' wx:if="{{isCreatedByCurrentMember&&!condition}}">立即分享</button>
+    <button class='share' wx:if="{{!isCreatedByCurrentMember&&!condition&&type==1&&remainingQuantity > 0}}" bindtap='goRedPacket'>立即加入</button>
+    <button class='share' wx:if="{{condition&&currentQuantity==3&&type==2&&redPacketGroupMemberStatus==0}}" bindtap='getRedPacket'>领取现金礼包</button>
+    <view class='twoBtn' wx:if="{{!condition && type==2 && !isCreatedByCurrentMember}}">
+      <button bindtap='goPlay'>前往活动专区</button>
+      <button>领取现金红包</button>
+    </view>
+    <button class='share' disabled='disabled' wx:if="{{currentQuantity==3&&condition&&remainingQuantity==0&&type==1}}">团已满</button>
+     <button class='share' disabled='disabled' wx:if="{{currentQuantity==3&&condition&&remainingQuantity==0&&type==2&&redPacketGroupMemberStatus==1}}">已领取现金礼包</button>
+  </view>
+</view>
+<view class='gameOver' wx:if='{{!hiGoFlag}}'>活动已结束</view>
+<view class='loginBg' wx:if="{{loginBgFlag}}">
+  <view class='loginTips'>
+    <view class='loginText'>需要获取您的公开信息（昵称，头像等），请立即点击授权</view>
+    <button open-type="getUserInfo" class='loginBtn' bindgetuserinfo="bindGetUserInfo">立即授权</button>
+  </view>
+</view>

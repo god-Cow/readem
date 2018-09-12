@@ -1,0 +1,226 @@
+<view class='noGroupSamll' style='display:{{noGroupSamll}}' bindtap='noGroupSamll'>{{description}}</view>
+<view class='noGroupbig {{noGroupbig=="none"?"noGroupbig1":"noGroupbig2"}}' bindtap='noGroupbig'>
+  <view>
+    <image src='https://img3.cloudokids.cn/h5img/scene/groupImg1.png'></image>
+    <text class='description'>{{description}}</text>
+    <text class='skipUrl'>{{skipUrl}}</text>
+    <button bindtap='creatGroup'>发起拼单</button>
+    <text class='rule' bindtap='tipsIn'>活动规则</text>
+  </view>
+</view>
+<view class='yesGroupSamll' style='display:{{yesGroupSamll}}' bindtap='yesGroupSamll'>
+  <text>剩余{{countDownDay}}:{{countDownHour}}:{{countDownMinute}}:{{countDownSecond}} {{description}}</text>
+</view>
+<view class='yesGroupbig {{yesGroupbig=="none"?"yesGroupbig1":"yesGroupbig2"}}' bindtap='yesGroupbig'>
+  <view>
+    <image src='https://img3.cloudokids.cn/h5img/scene/groupImg2.png'></image>
+    <text class='groupNumber'>编号：{{groupNumber}}</text>
+    <view class='bgImg' wx:if="{{csGroupBookingType==1}}">还需消费</view>
+    <view class='bgImg' wx:if="{{csGroupBookingType==2}}">还需下单</view>
+    <view class='bgImg' wx:if="{{csGroupBookingType==3}}">还需购买</view>
+    <view class='balanceMoney' wx:if="{{csGroupBookingType==1}}">
+      <text>¥</text>{{balanceMoney}}</view>
+    <view class='balanceMoney' wx:if="{{csGroupBookingType==2}}">{{balanceMoney}}
+      <text>单</text>
+    </view>
+    <view class='balanceMoney' wx:if="{{csGroupBookingType==3}}">{{balanceMoney}}
+      <text>件</text>
+    </view>
+    <text class='groupCount'>{{lastModifyTime}}</text>
+    <text class='time'>剩余 {{countDownDay}} : {{countDownHour}} : {{countDownMinute}} : {{countDownSecond}} </text>
+    <view class='newSkipUrl'>{{skipUrl}}</view>
+    <view>
+      <button open-type='share'>邀请拼单</button>
+      <button bindtap='bindItemTap'>分享</button>
+    </view>
+    <text class='rule' bindtap='tipsIn'>活动规则</text>
+  </view>
+</view>
+<view class="filterWrap {{noGroupSamll=='none'&&noGroupbig=='none'&&yesGroupSamll=='none'&&yesGroupbig=='none'?'':'top'}}">
+  <view class="rank {{goNext==false?'goNext':''}}" bindtap="goRanking">排序</view>
+  <view class="filter" bindtap="goFilter">筛选</view>
+</view>
+<view class="rankContent {{noGroupSamll=='none'&&noGroupbig=='none'&&yesGroupSamll=='none'&&yesGroupbig=='none'?'':'rankContentTop'}}" hidden="{{isHidden}}">
+  <block wx:for="{{rankingData}}" wx:key="">
+    <view class="singleWrap">
+      <view class="singleRankContent" bindtap="goCheck" data-index="{{item.index}}">{{item.name}}</view>
+      <view class="checkMark" hidden="{{item.checkHidden}}"></view>
+    </view>
+  </block>
+</view>
+<view class="container">
+  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight-40}}px;" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh" lower-threshold="1">
+    <view class='specialBanner' wx:if="{{specialBanner != '' && specialBanner != null}}" style='background:url({{specialBanner}});background-size:100% 100%;position:relative'>
+    </view>
+    <view class='brandBanner' wx:if="{{brandBanner != '' && brandBanner != null}}">
+      <image src='{{brandBanner}}' lazy-load='true'></image>
+    </view>
+    <view class='brandText' wx:if="{{brandText != '' && brandText != null}}">
+      <text>{{brandText}}</text>
+    </view>
+    <view class="proWrap {{specialBanner!=null?'_top':''}}">
+      <block wx:for="{{list}}" wx:key="">
+        <view class="itemWrap">
+          <view class='imgWrap'>
+            <form report-submit='true' bindsubmit='submit'>
+              <button type='default' form-type='submit' size='mini' class='form_button'>
+                <image src="{{item.img}}" data-id="{{item.spuId}}" bindtap="goDetail" lazy-load='true'></image>
+              </button>
+            </form>
+          </view>
+          <view wx:if="{{(item.discountMoney < 0 || item.discountMoney=='' || item.discountMoney == null) && !redGroup}}">
+            <view wx:if="{{item.lableName != null && item.lableName != ''}}" class='lableName'>{{item.lableName}}</view>
+          </view>
+          <text class="brand">{{item.brandName}}</text>
+          <text class="name">{{item.goodsName}}</text>
+          <view class="shopPrice" wx:if="{{item.salePrice == item.marketPrice}}">
+            <text class="price">¥{{item.salePrice}}</text>
+          </view>
+          <view class='shopPrice' wx:else>
+            <text class="price prcieClass" style='float:left;text-align:right'>¥{{item.salePrice}}</text>
+            <text class="marketPrice prcieClass" style='float:right;text-align:left'>¥{{item.marketPrice}}</text>
+          </view>
+          <view wx:if="{{(item.discountMoney < 0 || item.discountMoney=='' || item.discountMoney == null) && !redGroup}}">
+            <block wx:if="{{item.activityContent != null && item.activityContent != ''}}">
+              <view class='activityContent'>{{item.activityContent}}</view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="hiddenInfo" style="display:{{hiddenInfo}}">未检索到任何商品</view>
+    <view class="isAllHiddenInfo" style="display:{{isAllHiddenInfo}}">已加载全部商品</view>
+  </scroll-view>
+  <view class="body-view">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+      加载中...
+    </loading>
+  </view>
+</view>
+<view class='allWrap {{allWrapHidden == "none"?"slowComing":"slowGo"}}' style="height:{{scrollHeight}}px;">
+  <view class='filtrate' style="min-height:{{scrollHeight}}px;">
+    <view class='aboutInfo' style="height:{{scrollHeight - 50}}px;">
+      <view class='same'>
+        <view class='text'>价格区间</view>
+        <view id="price">
+          <input type='number' pattern="[0-9]*" placeholder='最低价格' class="minPrice" bindinput='minPrice'></input>
+          <view style='width:20rpx;line-height:40rpx;height:60rpx;color:#999;float:left;margin-left:20rpx'>-</view>
+          <input type='number' pattern="[0-9]*" placeholder='最高价格' class="maxPrice" bindinput='maxPrice'></input>
+        </view>
+      </view>
+      <view class="same Brand {{brand.length > 0 ?'':'noDisplay'}}">
+        <view class='text {{brand.length > 3 ? "brandWrap":""}} {{brandStatus == "none"?"":"changeBg"}}' wx:if="{{brand.length > 3}}" bindtap="brandStatus">品牌</view>
+        <view class='text {{brand.length > 3 ? "brandWrap":""}} {{brandStatus == "none"?"":"changeBg"}}' wx:else>品牌</view>
+        <view class='children {{brandStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="brand">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{brand}}" bindtap='BrandClick' wx:key="">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same sex {{gender.length > 0 ? '':'noDisplay'}}">
+        <view class='text'>性别</view>
+        <view class='children'>
+          <view class="childrenList" id="sex">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{gender}}" bindtap='genderClick' wx:key="">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same age {{value.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{value.length > 3 ?"ageWrap":""}} {{ageStatus == "none"?"":"changeBg"}}' bindtap="ageStatus" wx:if="{{value.length > 3}}">年龄</view>
+        <view class='text {{value.length > 3 ?"ageWrap":""}} {{ageStatus == "none"?"":"changeBg"}}' wx:else>年龄</view>
+        <view class='children {{ageStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="age">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{value}}" bindtap='ageClick' wx:key="">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same classify {{category.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{category.length > 3 ?"classifyWrap":""}} {{classifyStatus == "none"?"":"changeBg"}}' bindtap="classifyStatus" wx:if="{{category.length > 3}}">分类</view>
+        <view class='text {{category.length > 3 ?"classifyWrap":""}} {{classifyStatus == "none"?"":"changeBg"}}' wx:else>分类</view>
+        <view class='children {{classifyStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="classify">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{category}}" bindtap='classifyClick' wx:key="">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same color {{color.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{color.length > 3 ?"colorWrap":""}} {{colorStatus == "none"?"":"changeBg"}}' bindtap="colorStatus" wx:if="{{color.length > 3}}">颜色</view>
+        <view class='text {{color.length > 3 ?"colorWrap":""}} {{colorStatus == "none"?"":"changeBg"}}' wx:else>颜色</view>
+        <view class='children {{colorStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="color">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{color}}" bindtap='colorClick' wx:key="">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same size {{size.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{size.length > 3 ?"sizeWrap":""}} {{sizeStatus == "none"?"":"changeBg"}}' bindtap="sizeStatus" wx:if="{{size.length > 3}}">尺码</view>
+        <view class='text {{size.length > 3 ?"sizeWrap":""}} {{sizeStatus == "none"?"":"changeBg"}}' wx:else>尺码</view>
+        <view class='children {{sizeStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="size">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{size}}" bindtap='sizeClick' wx:key="">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="same season {{attr.length > 0 ? '':'noDisplay'}}">
+        <view class='text {{attr.length > 3 ?"seasonWrap":""}} {{attrStatus == "none"?"":"changeBg"}}' bindtap="attrStatus" wx:if="{{attr.length > 3}}">季节</view>
+        <view class='text {{attr.length > 3 ?"seasonWrap":""}} {{attrStatus == "none"?"":"changeBg"}}' wx:else>季节</view>
+        <view class='children {{attrStatus == "none"?"":"unfold"}}'>
+          <view class="childrenList" id="season">
+            <view class="sameList {{item.flag == false?'':'active'}}" data-flag="{{item.flag}}" data-index="{{item.index}}" wx:for="{{attr}}" bindtap='attrClick' wx:key="">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="buttonWrap">
+      <button class="reset" bindtap='reset'>重置</button>
+      <button class='confirm' bindtap='confirm'>确定</button>
+    </view>
+  </view>
+  <view class='shade' style="height:{{scrollHeight}}px;" bindtap='closeBg'></view>
+</view>
+<button class='goIndex' bindtap='goIndex'></button>
+<button class='pictureShare' bindtap='shareList'></button>
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+  <action-sheet-item class="item">
+    <button open-type='share'>分享给朋友</button>
+  </action-sheet-item>
+  <action-sheet-item class="item" bindtap="bindItemTap">生成卡片并分享</action-sheet-item>
+  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>
+<view class='canvasBg' wx:if="{{imgFlag}}" style='height:{{scrollHeight}}px;width:{{windowWidth}}px;overflow:hidden;'></view>
+<view class='spuCanvas' wx:if="{{imgFlag}}">
+  <canvas class='spuCanvasImg' canvas-id='spuCanvas' disable-scroll='true' bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"></canvas>
+  <view>
+    <button class='btn1' bindtap='saveShare'>保存到相册</button>
+    <button class='btn2' bindtap='delShare'>取消</button>
+  </view>
+</view>
+<view class='groupTips' style='display:{{tips}}'>
+  <view class='text'>
+    <view class='groupTipsTitle'>拼单规则</view>
+    <view class='newList'>-
+      <text>拼单优惠力度</text>：参与拼单可立即在结算时享受拼单产品折扣优惠，已打折拼单产品可享折上再折扣优惠；</view>
+    <view class='newList'>-
+      <text>拼单成功需求</text>：在一个拼单发起后的规定时间内，拼单条件满足规定条件（条件分为：满足额度，件数，单数，人数等），则视为拼单成功；如不能满足规定条件，则视为拼单失败，所有参加此拼单的订单将被取消并全额退款；</view>
+    <view class='newList'>-
+      <text>拼单时限说明</text>：拼单发起后，如拼单尚未成功，24小时内皆可加入参与；如拼单成功，即从成功的时间算起，6小时内可继续加入参与此单；</view>
+    <view class='newList'>-
+      <text>退单规则</text>：发起或参与拼单的用户，如在拼单成功前未支付任何订单，即可随时选择退出拼单，退出后可进行原价正常购买；如拼单未成功的已支付订单，退出拼单后订单将自动取消并退款；如拼单成功（拼单总额达到规定额度），任何订单不允许取消；</view>
+    <view class='newList'>-
+      <text>退货规则</text>：发起或参与拼单的用户，拼单开始后可随时退出拼单，对于支付成功的订单退出拼单后，不会取消订单，如需取消请联系客服；</view>
+  </view>
+  <view class='tipsDel' bindtap='tipsDel'></view>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>
+<view class='loginBg' wx:if="{{loginBgFlag}}">
+  <view class='loginTips'>
+    <view class='loginText'>需要获取您的公开信息（昵称，头像等），请立即点击授权</view>
+    <button open-type="getUserInfo" class='loginBtn' bindgetuserinfo="bindGetUserInfo">立即授权</button>
+  </view>
+</view>

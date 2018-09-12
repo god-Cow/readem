@@ -1,0 +1,155 @@
+page{
+  background: #f3f3f3;
+}
+.orderStyle{
+  display: flex;
+  background: #ffffff;
+  margin: 10px auto;
+}
+.list{
+  flex: 1;
+  display: inline-block;
+}
+.title{
+  text-align: center;
+  display: block;
+  font-size: 14px;
+  line-height: 30px;
+  border-bottom: 1px solid #eaeaea;
+}
+.text{
+  text-align: center;
+  display: block;
+  font-size: 12px;
+  line-height: 30px;
+}
+.cart{
+  background: #fff;
+  margin: 0px auto;
+}
+.cart .text{
+  font-size: 14px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.shop{
+  overflow: hidden;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+.shop .shopInfo{
+  margin-left: 20px;
+  width: 400rpx;
+}
+.floatLeft{
+  float: left;
+}
+.shop .img{
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin-left: 10px;
+}
+.shop .img image{
+  width: 100%;
+  height: 100%;
+}
+.shop .shopInfo view{
+  font-size: 12px;
+  line-height: 40rpx;
+  height: 40rpx;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shop .shopInfo view text:nth-of-type(2){
+  background: #010101;
+  color: #fff;
+  padding: 0 5rpx;
+  margin-left: 10rpx;
+  line-height: 15px;
+  font-size: 10px;
+  height: 15px;
+  display: block;
+  float: left;
+  margin-top: 5px;
+}
+.shop .shopInfo view text:nth-of-type(1){
+  display: block;
+  float: left;
+  width: 400rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.address{
+  background: #fff;
+  margin: 10px auto
+}
+.address text{
+  display: block;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.address text:nth-child(1){
+  font-size: 14px;
+}
+.address text{
+  font-size: 12px;
+}
+.orderMoney{
+  width: 100%;
+  background: #fff;
+  margin: 10px auto;
+}
+.moneyList{
+  display: flex;
+}
+.moneyList text{
+  flex: 1;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 30px;
+  margin-left: 10px;
+}
+.moneyList text:nth-child(2){
+  text-align: right;
+  margin-right: 10px;
+}
+.primary{
+  display: block;
+  width: 120px;
+  height: 40px;
+  color: #fff;
+  background: #000000;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+}
+.wayBill{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  background: #ffffff;
+  margin: 20rpx auto 0;
+  padding-left: 20rpx;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+.wayBill .wayBillInfo {
+  float: left;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wayBill image{
+  width:12rpx;
+  height:20rpx;
+  margin-right: 20rpx;
+  float: right;
+  margin-top:20rpx; 
+}

@@ -1,0 +1,46 @@
+<view class='content'>
+  <view class='bannerImg'>
+    <image src='https://img3.cloudokids.cn/h5img/promotion/getFree2.png' mode='widthFix' lazy-load='true'></image>
+  </view>
+  <view class='atitle' wx:if='{{freeInfo.count==0}}'>赶快邀请好友吧</view>
+  <view class='atitle' wx:if='{{freeInfo.count < 2 && freeInfo.count > 0}}'>距离成功只有1步之遥啦</view>
+  <view class='atitle' wx:if='{{freeInfo.count >= 2 && freeInfo.flag}}'>恭喜你成功啦！点击右下方按钮领券</view>
+  <view class='group'>
+    <view class='loader' wx:for="{{freeInfo.imgList}}" wx:key="{{index}}" style='flex:3'>
+      <image src='{{item.avatar}}'></image>
+    </view>
+  </view>
+  <view class='btn'>
+    <button open-type='share'>邀请好友</button>
+    <button wx:if="{{freeInfo.flag}}" bindtap='getDHCard' class='active1'>领取兑换券</button>
+    <button wx:else class='active'>领取兑换券</button>
+  </view>
+  <view class='description'>
+    <text>活动说明</text>
+    <view class='line'></view>
+    <text>1.¥14.9购买资格仅限新注册用户参与；</text>
+    <text>2.每位新用户仅可抢购一件。</text>
+  </view>
+</view>
+<view class='canvasBg' hidden='{{spuCanvas}}' style='height:{{windowHeight}};width:100%;overflow:hidden;'></view>
+<view class='spuCanvas' hidden='{{spuCanvas}}'>
+  <canvas class='spuCanvasImg' canvas-id='spuCanvas' disable-scroll='true' bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"></canvas>
+  <view>
+    <button class='btn1' bindtap='saveSpuCanvasImg'>保存到相册</button>
+    <button class='btn2' bindtap='cancelSpuCanvasImg'></button>
+  </view>
+</view>
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+  <action-sheet-item class="item">
+    <button open-type='share' data-id="1">分享给朋友</button>
+  </action-sheet-item>
+  <action-sheet-item class="item" bindtap="bindItemTap">生成卡片并分享</action-sheet-item>
+  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>
+<button class='pictureShare' bindtap='shareList'></button>
+<view class='loginBg' wx:if="{{loginBgFlag}}">
+  <view class='loginTips'>
+    <view class='loginText'>需要获取您的公开信息（昵称，头像等），请立即点击授权</view>
+    <button open-type="getUserInfo" class='loginBtn' bindgetuserinfo="bindGetUserInfo">立即授权</button>
+  </view>
+</view>

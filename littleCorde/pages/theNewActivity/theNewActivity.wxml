@@ -1,0 +1,235 @@
+<view class='gameOver' wx:if='{{!hiGoFlag}}'>活动已结束</view>
+<scroll-view style='height:100%;overflow:scroll;width:100%;' class='content' scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" wx:if='{{hiGoFlag&&windowHeight}}'>
+  <view class='bannerImg'>
+    <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity1.jpg'></image>
+  </view>
+  <view class='title' id='inToViewA'>最新上线品牌</view>
+  <view class='etitle'>THE LATEST ONLINE BRAND</view>
+  <swiper class='brand5' autoplay='false' duration='1000' indicator-dots='true' interval='5000'>
+    <swiper-item>
+      <navigator url='../newStyle/newStyle?specialId=2335&pageCome=1' hover-class='none'>
+        <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity102.jpg'></image>
+      </navigator>
+    </swiper-item>
+    <swiper-item>
+      <navigator url='../newStyle/newStyle?specialId=2329&pageCome=1' hover-class='none'>
+        <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity94.jpg'></image>
+      </navigator>
+    </swiper-item>
+    <swiper-item>
+      <navigator url='../newStyle/newStyle?specialId=2330&pageCome=1' hover-class='none'>
+        <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity91.jpg'></image>
+      </navigator>
+    </swiper-item>
+    <swiper-item>
+      <navigator url='../newStyle/newStyle?specialId=2334&pageCome=1' hover-class='none'>
+        <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity90.jpg'></image>
+      </navigator>
+    </swiper-item>
+    <swiper-item>
+      <navigator url='../newStyle/newStyle?specialId=2365&pageCome=1' hover-class='none'>
+        <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity100.jpg'></image>
+      </navigator>
+    </swiper-item>
+    <swiper-item>
+      <navigator url='../newStyle/newStyle?specialId=2323&pageCome=1' hover-class='none'>
+        <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity61.jpg'></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+  <view class='title' id='inToViewB'>已上线 · 热门品牌</view>
+  <view class='etitle'>POPULAR BRAND</view>
+  <view class='list'>
+    <navigator url='../newStyle/newStyle?specialId=2312&pageCome=1' class='brand1'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity2.jpg'></image>
+    </navigator>
+    <navigator url='../newStyle/newStyle?specialId=2313&pageCome=1' class='brand1'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity3.jpg'></image>
+    </navigator>
+    <navigator url='../newStyle/newStyle?specialId=2314&pageCome=1' class='brand1'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity4.jpg'></image>
+    </navigator>
+    <navigator url='../newStyle/newStyle?specialId=2315&pageCome=1' class='brand1'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity5.jpg'></image>
+    </navigator>
+    <navigator url='../newStyle/newStyle?specialId=2316&pageCome=1' class='brand1'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity6.jpg'></image>
+    </navigator>
+    <navigator url='../newStyle/newStyle?specialId=2317&pageCome=1' class='brand1'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity7.jpg'></image>
+    </navigator>
+  </view>
+  <view class='title' id='inToViewD'>更多近期上新品牌</view>
+  <view class='etitle'>MORE RECENT BRAND NEW BRANDS</view>
+  <scroll-view scroll-x="true" class='list2' scroll-width-animation="true" style='width:720rpx'>
+    <navigator url='../newStyle/newStyle?specialId=2319&pageCome=1' class='brand2'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity48.png'></image>
+    </navigator>
+    <navigator url='../newStyle/newStyle?specialId=2320&pageCome=1' class='brand2'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity49.png'></image>
+    </navigator>
+    <navigator url='../newStyle/newStyle?specialId=2321&pageCome=1' class='brand2'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity50.png'></image>
+    </navigator>
+    <navigator url='../newStyle/newStyle?specialId=2322&pageCome=1' class='brand2'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity52.png'></image>
+    </navigator>
+    <navigator url='../newStyle/newStyle?specialId=2318&pageCome=1' class='brand2'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity53.jpg'></image>
+    </navigator>
+  </scroll-view>
+  <view class='title' id='inToViewE'>全球同步上新品牌</view>
+  <view class='etitle'>NEW BRANDS ON THE GLOBAL SYNC</view>
+  <view class='news'>
+    <view class='brand3' data-id="2324" data-come="1" data-time='1532394000' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity8.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2323" data-come="1" data-time='1531904400' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity9.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2325" data-come="1" data-time='1532480400' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity10.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2326" data-come="1" data-time='1532592000' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity11.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2327" data-come="1" data-time='1532682000' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity12.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2328" data-come="1" data-time='1532998800' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity13.jpg'></image>
+    </view>
+  </view>
+  <view class='title' id='inToViewF'>每周五上新日—07.20</view>
+  <view class='etitle'>EVERY FRIDAY TO THE NEW DAY</view>
+  <view class='news'>
+    <view class='brand3' data-id="2329" data-come="1" data-time='1532052000' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity70.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2330" data-come="1" data-time='1532052000' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity71.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2334" data-come="1" data-time='1532052000' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity75.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2365" data-come="1" data-time='1532052000' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity101.jpg'></image>
+    </view>
+  </view>
+  <view class='title'>每周五上新日—7月进行时</view>
+  <view class='etitle'>EVERY FRIDAY TO THE NEW DAY</view>
+  <view class='news'>
+    <view class='brand3' data-id="2337" data-come="1" data-time='1532656800' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity79.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2338" data-come="1" data-time='1532656800' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity80.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2339" data-come="1" data-time='1532656800' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity81.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2340" data-come="1" data-time='1532656800' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity82.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2341" data-come="1" data-time='1532656800' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity83.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2342" data-come="1" data-time='1532656800' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity84.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2343" data-come="1" data-time='1532656800' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity85.jpg'></image>
+    </view>
+    <view class='brand3' data-id="2344" data-come="1" data-time='1532656800' bindtap='goSpecial'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity86.jpg'></image>
+    </view>
+  </view>
+  <view class='title' id='inToViewG'>8月尝鲜预告</view>
+  <view class='etitle'>AUGUST PREVIEW</view>
+  <view class='news'>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity30.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity31.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity32.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity33.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity34.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity35.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity36.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity37.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity38.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity39.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity40.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity41.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity42.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity43.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity44.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity45.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity46.jpg'></image>
+    </view>
+    <view class='brand4' bindtap='goNew'>
+      <image src='https://img3.cloudokids.cn/h5img/newBuyers/newBuyersImg/the2018newactivity47.jpg'></image>
+    </view>
+  </view>
+  <navigator class='lasta' url='../newStyle/newStyle?specialId=434&specialTopicId=436&title=新品&pageCome=1'>立即选购18秋冬新品</navigator>
+</scroll-view>
+<button class='share' bindtap='shareList' wx:if='{{hiGoFlag}}'></button>
+<view class='goIndex' bindtap='goIndex' wx:if='{{hiGoFlag}}'></view>
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+  <action-sheet-item class="item">
+    <button open-type='share' data-id="1">分享给朋友</button>
+  </action-sheet-item>
+  <action-sheet-item class="item" bindtap="bindItemTap">生成卡片并分享</action-sheet-item>
+  <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>
+<view class='canvasBg' hidden='{{spuCanvas}}' style='height:{{windowHeight}};width:{{windowWidth}};overflow:hidden;'></view>
+<view class='spuCanvas' hidden='{{spuCanvas}}'>
+  <canvas class='spuCanvasImg' canvas-id='spuCanvas' disable-scroll='true' bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"></canvas>
+  <view>
+    <button class='btn1' bindtap='saveSpuCanvasImg'>保存到相册</button>
+    <button class='btn2' bindtap='cancelSpuCanvasImg'>取消</button>
+  </view>
+</view>
+<view class='navigation' bindtap='disapper' data-flag='{{flag}}' wx:if='{{hiGoFlag}}'>
+  <image src='https://img3.cloudokids.cn/h5img/scene/cloudoIcon4.png'></image>
+</view>
+<view class='navigationList {{flag?"navigationYes":"navigationNone"}}' wx:if='{{hiGoFlag}}'>
+  <view class='navigationListSame' bindtap='go' data-id="1"></view>
+  <view class='navigationListSame' bindtap='go' data-id="2"></view>
+  <view class='navigationListSame' bindtap='go' data-id="3"></view>
+  <view class='navigationListSame' bindtap='go' data-id="4"></view>
+  <view class='navigationListSame' bindtap='go' data-id="5"></view>
+  <view class='navigationListSame' bindtap='go' data-id="6"></view>
+  <view class='navigationListSame' bindtap='go' data-id="7"></view>
+</view>

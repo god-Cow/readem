@@ -1,0 +1,14 @@
+.blackPage{
+  font-size: 24rpx;
+  line-height: 500rpx;
+  text-align: center;
+}
+.goIndex{
+  background: url("https://img3.cloudokids.cn/h5img/scene/cloudoIcon2.png") no-repeat;
+  background-size:100% 100%;
+  width: 90rpx;
+  height: 90rpx;
+  position: fixed;
+  bottom: 65rpx;
+  right: 25rpx;
+}

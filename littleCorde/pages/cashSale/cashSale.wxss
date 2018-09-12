@@ -1,0 +1,326 @@
+.content {
+  width: 100%;
+  overflow: hidden;
+}
+
+.special {
+  width: 92%;
+  height: 460rpx;
+  margin: 0 auto;
+  position: relative
+}
+
+.specialimg {
+  width: 100%;
+  height: 460rpx;
+}
+
+.title {
+  display: block;
+  width: 100%;
+  font-size: 36rpx;
+  text-align: center;
+  margin: 100rpx auto 12rpx;
+  color: #1c1c1c;
+  font-weight: lighter;
+}
+
+.title2 {
+  display: block;
+  width: 100%;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 0 auto 50rpx;
+  color: #1c1c1c;
+  letter-spacing: 2rpx;
+  font-weight: lighter;
+}
+
+.classifications {
+  width: 100%;
+  margin: 0 auto 80rpx;
+  overflow: hidden;
+}
+
+.classification {
+  width: 25%;
+  height: 180rpx;
+  box-sizing: border-box;
+  float: left;
+}
+
+.classification:nth-child(4n) {
+  border-right: none;
+}
+
+.classificationimgs {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.classificationimg {
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin: 20rpx auto;
+  border-radius: 40rpx;
+}
+
+.classificationtext {
+  font-size: 20rpx;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+  font-weight: lighter;
+}
+
+.popularitydiv {
+  width: 92%;
+  height: 460rpx;
+  margin: 100rpx auto 20rpx;
+  position: relative;
+}
+.shade{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.44);
+  width: 100%;
+  height: 112rpx;
+}
+.shadetext1{
+  font-size: 32rpx;
+  display: block;
+  text-align: center;
+  margin: 20rpx auto 8rpx;
+  color: #fff;
+}
+.shadetext2{
+  font-size: 20rpx;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+}
+.popularity {
+  display: block;
+  width: 100%;
+  height: 460rpx;
+}
+
+.popularitySKU {
+  white-space: nowrap;
+  width: 720rpx;
+  height: 310rpx;
+  margin: 30rpx 0 0 30rpx;
+}
+
+.popularitySKUimg {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 10rpx auto 20rpx;
+  display: block;
+}
+
+.brandname {
+  font-size: 20rpx;
+  font-weight: 700;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.goodsPrice {
+  font-size: 20rpx;
+  display: block;
+  width: 90%;
+  margin: 20rpx auto 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.popularitySKU .popularitySKU2 {
+  display: inline-block;
+  height: 310rpx;
+  width: 33.33%;
+  margin-top: 0;
+}
+
+.lastclassificationimg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.lastclassificationtext {
+  font-size: 24rpx;
+  text-align: right;
+  display: inline-block;
+  width: 130rpx;
+  height: 100%;
+  line-height: 232rpx;
+}
+
+.lastclassificationtext2 {
+  font-size: 40rpx;
+  text-align: left;
+  display: inline-block;
+  width: 54rpx;
+  height: 100%;
+  line-height: 226rpx;
+}
+
+.brandActivitydiv {
+  width: 92%;
+  height: 460rpx;
+  margin: 100rpx auto 30rpx;
+  position: relative;
+}
+
+.brandActivity {
+  width: 100%;
+  height: 460rpx;
+  display: block;
+}
+
+.Activity {
+  white-space: nowrap;
+  width: 720rpx;
+  height: 226rpx;
+  margin: 30rpx 0 0 30rpx;
+}
+
+.Activityview {
+  width: 340rpx;
+  display: inline-block;
+  height: 226rpx;
+  margin-right: 10rpx;
+}
+
+.Activityview:last-child {
+  margin-right: 0rpx;
+}
+
+.Activityview image {
+  width: 340rpx;
+  height: 226rpx;
+  display: block;
+}
+
+.brands {
+  width: 670rpx;
+  margin: 50rpx auto 100rpx;
+  overflow: hidden;
+  border-left: 1px solid #eee;
+}
+
+#brands:after {
+  clear: both;
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  visibility: hidden;
+}
+
+.brandview {
+  width: 220rpx;
+  height: 146rpx;
+  float: left;
+  overflow: hidden;
+  border-right: 1rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
+  margin: 0;
+  padding: 0;
+}
+
+.brandview:nth-child(1), .brandview:nth-child(2), .brandview:nth-child(3) {
+  border-top: 1rpx solid #eee;
+}
+
+.brandview .image {
+  width: 220rpx;
+  height: 146rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.brandviewtext {
+  font-size: 24rpx;
+  text-align: right;
+  display: block;
+  width: 135rpx;
+  height: 100%;
+  line-height: 120rpx;
+}
+
+.brandviewtext2 {
+  font-size: 40rpx;
+  text-align: left;
+  display: inline-block;
+  width: 70rpx;
+  height: 100%;
+  line-height: 120rpx;
+}
+
+.cashSale {
+  height: 372rpx;
+  position: fixed;
+  right: 0;
+  bottom: 470rpx;
+  z-index: 100;
+}
+
+.cashSale {
+  height: 186rpx;
+  position: fixed;
+  right: 0;
+  bottom: 410rpx;
+  z-index: 100;
+}
+
+.cashSaleimg {
+  width: 68rpx;
+  height: 186rpx;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+
+.moveview {
+  height: 186rpx;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+
+.lasttext {
+  font-size: 20rpx;
+  text-align: center;
+  display: block;
+  width: 220rpx;
+  height: 146rpx;
+  line-height: 146rpx;
+  color: #1c1c1c;
+}

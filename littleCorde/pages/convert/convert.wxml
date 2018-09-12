@@ -1,0 +1,17 @@
+<view class="list">
+  <text>{{index}}</text>
+</view>
+<view class="content">
+  <view class="same">
+    <text>{{index}}</text>
+    <input type="text" bindinput="card" value="{{cardNumber}}"/>
+  </view>
+</view>
+<button class="primary" bindtap="convert" disabled='{{disabled}}'>兑换</button>
+<view class="toast_content_box" wx:if="{{isShowToast}}">  
+  <view class="toast_content">  
+    <view class="toast_content_text">  
+      {{toastText}}  
+    </view>  
+  </view>  
+</view>

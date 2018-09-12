@@ -1,0 +1,227 @@
+.content{background: #fff;}
+.bannerImg{
+  width: 662rpx;
+  margin: 20rpx auto 48rpx;
+}
+.collageBanner2{
+  width: 660rpx;
+  margin: 40rpx auto 0rpx;
+}
+.collageBanner2 image{
+  display: block;
+  width: 100%;
+}
+.bannerImg image{
+  width: 100%;
+  display: block;
+}
+.index-tabs {
+  width: 600rpx;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.index-tabs .tab-list {
+  align-items: center;
+  height: 92rpx;
+  font-size: 32rpx;
+  line-height: 92rpx;
+  color: #A0A0A0;
+  position: relative;
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+.active{
+  color:#333!important;
+  font-weight: bold;
+}
+.color1{
+  background: linear-gradient(to right, #ff488e, #ffbf84);
+  width: 300rpx;
+  height: 10rpx;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -150rpx;
+}
+.color2{
+  background: #888;
+  width: 300rpx;
+  height: 10rpx;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -150rpx;
+}
+.singleModel {width:375rpx;float: left;margin-top: 25rpx;margin-bottom: 25rpx;height: 475rpx;}
+.singleModel a {display: block;}
+a {text-decoration: none;color: #000000;}
+.singleModel image {width:250rpx;height: 250rpx;margin: 0 auto;display: block;}
+img {border: none;}
+.singleModel>text {width: 90%;margin: 0 auto;display: block;text-align: center;height: 40rpx;line-height:40rpx;}
+.singleDesigner {height: 40rpx; line-height:40rpx;font-size: 24rpx;text-overflow: ellipsis;overflow: hidden;white-space: nowrap; font-weight: bolder;}
+.singleName,.marketPrice,.integral{height:40rpx;line-height:40rpx;font-size:24rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.lable {text-align: center;margin: 0 auto 10rpx;text-overflow: ellipsis;overflow: hidden; font-size: 22rpx;white-space: nowrap;border: 1rpx solid #ccc;display: table;padding: 0 30rpx;margin-top: 20rpx;}
+.integral{text-align: center;}
+.integral image{width:30rpx;height: 30rpx;margin-bottom: 5rpx;display:inline-block;vertical-align: middle;position: relative;top:-1rpx;}
+.isAllHiddenInfo {
+  width: 100%;
+  height: 150rpx;
+  text-align: center;
+  line-height: 120rpx;
+  font-size: 24rpx;
+  color: #a0a0a0;
+  padding-bottom: 50rpx;
+}
+.hiddenInfo {
+  height: 600rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 600rpx;
+  font-size: 24rpx;
+  color: #a0a0a0;
+}
+.member{
+  display: table;
+  margin: 0 auto;
+  font-size: 20rpx;
+  line-height:40rpx;
+}
+.member image {
+  width: 28rpx;
+  height: 20rpx;
+  margin-right: 8rpx;
+  margin-top: 10rpx;
+  display: inline-block;
+}
+.occasion{
+  width: 662rpx;
+  margin: 50rpx auto 56rpx;
+  border: 1px solid #eaeaea;
+}
+.occasionImg{
+  width: 624rpx;
+  margin: 20rpx auto 20rpx;
+  position: relative;
+}
+.occasionImg image{
+  display: block;
+  width: 100%;
+}
+.occasionTitle{
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  color: #323834;
+  background: #d8d8d8;
+}
+.occasionPrice{
+  text-align: center;
+}
+.collageBanner1{
+  position: absolute;
+  left: 0;
+  top:-120rpx;
+  width: 88rpx;
+  height: 78rpx;
+}
+.tips{
+  display: inline-block;
+}
+.tips text{
+  display: block;
+}
+.tips text:nth-of-type(1){
+  font-size: 36rpx;
+  color: #323834;
+  text-align: right;
+  position: relative;
+  top: 5rpx;
+}
+.tips text:nth-of-type(2){
+  font-size: 28rpx;
+  color: #3e3e3e;
+}
+.activePrice{
+  display: inline-block;
+  font-size: 96rpx;
+  color: #323834;
+}
+.originalPrice{
+  display: inline-block;
+  font-size: 20rpx;
+  color: #3e3e3e;
+  text-decoration: line-through;
+  position: relative;
+}
+.occasionBtn{
+  background: linear-gradient(to right, #ff488e, #ffbf84);
+  width: 356rpx;
+  height: 84rpx;
+  margin: 20rpx auto 44rpx;
+  text-align: center;
+  border-radius: 0 45rpx 45rpx 40rpx;
+}
+.occasionBtn text{
+  display: block;
+}
+.occasionBtn text:nth-of-type(1){
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 60rpx;
+}
+.occasionBtn text:nth-of-type(2){
+  font-size: 20rpx;
+  color: #fff;
+  line-height: 8rpx;
+}
+.collageBtn{
+  background: linear-gradient(to right, #ff488e, #ffbf84);
+  width: 264rpx;
+  height: 84rpx;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 0 45rpx 45rpx 40rpx;
+  position: relative;
+  top: -40rpx;
+  color: #fff;
+  line-height: 84rpx;
+  font-size: 28rpx;
+}
+.pictureShare{
+  position: fixed;
+  right: 20px;
+  background: url("https://img3.cloudokids.cn/h5img/scene/cloudoIcon1.png") no-repeat;
+  background-size: 100% 100%;
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 10;
+  bottom: 25px;
+}
+.item {
+  font-size: 28rpx;
+  height: 50px;
+  padding: 0 !important;
+  line-height: 50px !important;
+}
+.cancel{
+  font-size: 28rpx;
+  line-height: 30px;
+}
+.item button {
+  background: #fff !important;
+  height: 50px !important;
+  line-height: 50px !important;
+  font-size: 28rpx !important;
+}
+.item button::after {
+  content: none;
+}

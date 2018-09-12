@@ -1,0 +1,106 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-item {{currentTab==0?'on':''}}" data-current="0" bindtap="swichNav">
+    <text data-current="0" bindtap="swichNav">进行中</text>
+  </view>
+  <view class="swiper-tab-item {{currentTab==1?'on':''}}" data-current="1" bindtap="swichNav">
+    <text data-current="1" bindtap="swichNav">已结束</text>
+  </view>
+  <view class="swiper-tab-item {{currentTab==2?'on':''}}" data-current="2" bindtap="swichNav">
+    <text data-current="2" bindtap="swichNav">已失败</text>
+  </view>
+</view>
+<view wx:if="{{currentTab==0}}">
+  <scroll-view lower-threshold="1" scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{winHeight - 60}}px">
+    <view class='group'>
+      <view class='list' wx:for="{{groupList1}}" wx:key="">
+        <view class='header'>
+          <text>拼单编号：{{item.groupSn}}</text>
+          <text>{{item.groupStatusVo}}</text>
+        </view>
+        <view class='groupInfo' wx:if="{{item.img != null && item.img !=''}}" style='background:url("{{item.img}}");background-size:100% 450rpx;'>
+          <view class='info'>
+            <view class='text'>拼单{{item.number}}人 总金额{{item.totalMoney}}元</view>
+            <view class='tips'>剩余{{clock[index]}}</view>
+            <view class='groupBtn' wx:if="{{item.type != 4}}">
+              <button bindtap='exitGroup' data-id="{{item.id}}">退出拼单</button>
+              <button bindtap='newGoSpecial' data-activityId="{{item.activityId}}" data-type="{{item.type}}" data-specialId="{{item.specialId}}" data-topicId="{{item.topicId}}">去购物</button>
+            </view>
+            <view class='groupBtn' wx:else>
+              <button bindtap='exitGroup' data-id="{{item.id}}">退出拼单</button>
+              <button bindtap='newGoDetail' data-spuId="{{item.spuId}}">去购物</button>
+            </view>
+          </view>
+        </view>
+        <view class='groupInfo' wx:else style='background:url("https://img3.cloudokids.cn/h5img/scene/groupImg4.png");background-size:100% 450rpx;'>
+          <view class='info'>
+            <view class='text'>拼单{{item.number}}人 总金额{{item.totalMoney}}元</view>
+            <view class='tips'>剩余{{clock[index]}}</view>
+            <view class='groupBtn' wx:if="{{item.type != 4}}">
+              <button bindtap='exitGroup' data-id="{{item.id}}">退出拼单</button>
+              <button bindtap='newGoSpecial' data-activityId="{{item.activityId}}" data-type="{{item.type}}" data-specialId="{{item.specialId}}" data-topicId="{{item.topicId}}">去购物</button>
+            </view>
+            <view class='groupBtn' wx:else>
+              <button bindtap='exitGroup' data-id="{{item.id}}">退出拼单</button>
+              <button bindtap='newGoDetail' data-spuId="{{item.spuId}}">去购物</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view wx:if="{{currentTab==1}}">
+  <scroll-view lower-threshold="1" scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{winHeight - 60}}px">
+    <view class='group'>
+      <view class='list' wx:for="{{groupList3}}" wx:key="">
+        <view class='header'>
+          <text>拼单编号：{{item.groupSn}}</text>
+          <text>{{item.groupStatusVo}}</text>
+        </view>
+        <view class='groupInfo' wx:if="{{item.img != null && item.img !=''}}" style='background:url("{{item.img}}");background-size:100% 450rpx;'>
+          <view class='info'>
+            <view class='text' style='margin-top:40rpx;'>拼单{{item.number}}人 总金额{{item.totalMoney}}元</view>
+            <view class='tips'>本拼单已成功 等待发货</view>
+          </view>
+        </view>
+        <view class='groupInfo' wx:else style='background:url("https://img3.cloudokids.cn/h5img/scene/groupImg4.png");background-size:100% 450rpx;'>
+          <view class='info'>
+            <view class='text' style='margin-top:40rpx;'>拼单{{item.number}}人 总金额{{item.totalMoney}}元</view>
+            <view class='tips'>本拼单已成功 等待发货</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view wx:if="{{currentTab==2}}">
+  <scroll-view lower-threshold="1" scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{winHeight - 60}}px">
+    <view class='group'>
+      <view class='list' wx:for="{{groupList2}}" wx:key="">
+        <view class='header'>
+          <text>拼单编号：{{item.groupSn}}</text>
+          <text>{{item.groupStatusVo}}</text>
+        </view>
+        <view class='groupInfo' wx:if="{{item.img != null && item.img !=''}}" style='background:url("{{item.img}}");background-size:100% 450rpx;'>
+          <view class='info'>
+            <view class='text' style='margin-top:40rpx;'>拼单{{item.number}}人 总金额{{item.totalMoney}}元</view>
+            <view class='tips'>总金额未达到标准，本拼单失败</view>
+          </view>
+        </view>
+        <view class='groupInfo' wx:else style='background:url("https://img3.cloudokids.cn/h5img/scene/groupImg4.png");background-size:100% 450rpx;'>
+          <view class='info'>
+            <view class='text' style='margin-top:40rpx;'>拼单{{item.number}}人 总金额{{item.totalMoney}}元</view>
+            <view class='tips'>总金额未达到标准，本拼单失败</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="toast_content_box" wx:if="{{isShowToast}}">
+  <view class="toast_content">
+    <view class="toast_content_text">
+      {{toastText}}
+    </view>
+  </view>
+</view>

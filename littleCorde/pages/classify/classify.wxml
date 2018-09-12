@@ -1,0 +1,84 @@
+<view class="index-tabs flex-center">
+  <view class="tab-list flex-div {{classifyActive1?'active':''}}" data-id='1' bindtap="changeClassify">
+    <view>品牌</view>
+    <view class='{{classifyActive1?"color1":"color2"}}'></view>
+  </view>
+  <view class="tab-list flex-div {{classifyActive2?'active':''}}" data-id='2' bindtap="changeClassify">
+    <view>分类</view>
+    <view class='{{classifyActive2?"color1":"color2"}}'></view>
+  </view>
+</view>
+<scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" style='height:{{windowHeight-48}}px;width:100%;overflow-x:hidden;'>
+  <view class='brandList' wx:if="{{classifyActive1}}">
+    <view class="container">
+      <block wx:for="{{brand}}" wx:key="">
+        <view class="flex">
+          <view class="item_left">
+            <text class="topHeader" id="{{ 'inToView'+item.header}}">{{item.header}}</text>
+            <view wx:for="{{item.datas}}" class='brandName' wx:key="">
+              <view class="classname" bindtap='goBrandList' data-id="{{item.id}}" data-title="{{item.enName}}">
+                <text class="nextData">{{item.enName}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='sort' wx:if="{{classifyActive2}}">
+    <view class='category'>
+      <view wx:for="{{getCategorySales}}" class='categoryName' wx:key="">
+        <view class='categoryInfo {{item.display=="none" ? "":"goNext"}}' bindtap='effect' data-id="{{item.id}}" data-flag="{{item.display}}">
+          <text>{{item.name}}</text>
+        </view>
+        <view class="childrenCategory" style='display:{{item.display}}'>
+          <view class='categoryList' data-id="{{item.id}}">
+            <view wx:if="{{item.type == '2'}}">
+              <navigator url='../newStyle/newStyle?specialId={{item.specialId}}&specialTopicId={{item.topicId}}&title={{item.name}}&pageCome=1'>
+                <text>全部</text>
+              </navigator>
+            </view>
+            <view wx:else>
+              <navigator url='../newStyle/newStyle?specialId={{item.id}}&title={{item.name}}&pageCome=2'>
+                <text>全部</text>
+              </navigator>
+            </view>
+          </view>
+          <view class='categoryList' wx:for="{{item.childData}}" data-id="{{item.id}}" wx:key="">
+            <navigator url='../newStyle/newStyle?specialId={{item.id}}&title={{item.name}}&pageCome=2'>
+              <text>{{item.name}}</text>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class="orientation_region" wx:if="{{classifyActive1}}">
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="A">A</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="B">B</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="C">C</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="D">D</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="E">E</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="F">F</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="G">G</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="H">H</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="I">I</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="J">J</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="K">K</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="L">L</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="M">M</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="N">N</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="O">O</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="P">P</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="Q">Q</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="R">R</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="S">S</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="T">T</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="U">U</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="V">V</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="W">W</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="X">X</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="Y">Y</view>
+  <view class="orientation_city" bindtap="scrollToViewFn" data-id="Z">Z</view>
+</view>

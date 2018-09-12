@@ -1,0 +1,222 @@
+page {
+  background-color: #1b1f2a;
+}
+
+.conten {
+  overflow: hidden;
+}
+
+.banner {
+  width: 100%;
+  height: 306rpx;
+  background: url(https://img3.cloudokids.cn/h5img/icon/201808/Member23.png) center center no-repeat;
+  background-size: 100%;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 306rpx;
+  position: relative;
+}
+
+.myphoto {
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #fff;
+  padding: 4rpx;
+  border: 12rpx solid rgba(0, 0, 0,0.5);
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-radius: 50%;
+  position: absolute;
+  left: 315rpx;
+  bottom: -60rpx;
+  z-index: 10;
+}
+
+.myphoto image {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  display: block;
+}
+
+.course {
+  overflow: hidden;
+}
+
+.name {
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 74rpx;
+  color: #fff;
+}
+
+.Grade {
+  display: table;
+  margin: 10rpx auto 0;
+  font-size: 18rpx;
+  color: #fff;
+  line-height: 20rpx;
+}
+
+.Grade image {
+  width: 28rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+}
+
+.core {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto 70rpx;
+}
+
+.core2 {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto 91rpx;
+}
+
+.core2>view {
+  float: left;
+}
+
+.core>view {
+  float: left;
+}
+
+.core2 .corecenter {
+  width: 42rpx;
+  height: 568rpx;
+  margin: 0 24rpx;
+  position: relative;
+}
+
+.core2 .line {
+  width: 1px;
+  height: 568rpx;
+  background-color: #23303c;
+  position: absolute;
+  left: 50%;
+  margin-left: -0.5px;
+  top: 0;
+}
+
+.core2 .imgs {
+  width: 42rpx;
+  height: 568rpx;
+  position: absolute;
+  left: 0;
+}
+
+.coreleft, .coreright {
+  width: 306rpx;
+  height: 100%;
+  text-align: justify;
+}
+.coreleft{
+  margin-left: 20rpx;
+}
+.coreright{
+  margin-right: 20rpx;
+}
+.corecenter {
+  width: 42rpx;
+  height: 772rpx;
+  margin: 0 24rpx;
+  position: relative;
+}
+
+.line {
+  width: 1px;
+  height: 772rpx;
+  background-color: #23303c;
+  position: absolute;
+  left: 50%;
+  margin-left: -0.5px;
+  top: 0;
+}
+
+.imgs {
+  width: 42rpx;
+  height: 772rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.corecenter image {
+  display: block;
+  width: 42rpx;
+  height: 42rpx;
+  margin: 90rpx auto;
+  z-index: 10;
+}
+
+.corecenter image:nth-child(2) {
+  margin-top: 70rpx;
+}
+
+.corecenter image:last-child {
+  margin-bottom: 0;
+}
+
+.coretext {
+  text-align: right;
+  margin: 90rpx 0 186rpx;
+}
+
+.coretext view:nth-child(1) {
+  font-size: 24rpx;
+  color: #84ddf7;
+}
+
+.coretext view:nth-child(2) {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+.coretext:last-child {
+  margin-bottom: 0;
+}
+
+.coretext2 {
+  text-align: left;
+  margin: 90rpx 0 186rpx;
+}
+
+.coretext2:nth-child(1) {
+  margin-top: 224rpx;
+}
+
+.coretext2 view:nth-child(1) {
+  font-size: 24rpx;
+  color: #84ddf7;
+}
+
+.coretext2 view:nth-child(2) {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+.coretext2:last-child {
+  margin-bottom: 0;
+}
+
+.Predestination view {
+  font-size: 32rpx;
+  color: #84ddf7;
+  margin: 0 auto 40rpx;
+  text-align: center;
+}
+
+.Predestination image {
+  width: 50rpx;
+  height: 14rpx;
+  margin: 0 auto 1rem;
+  display: block;
+}
