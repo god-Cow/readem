@@ -1,3 +1,0 @@
-<view class="page-special page-spa">
-  <web-view src="{{url}}" bindmessage="eventHandler"></web-view>
-</view>
